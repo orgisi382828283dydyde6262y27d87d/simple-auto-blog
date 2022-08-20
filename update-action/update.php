@@ -68,7 +68,7 @@ function generateRandomString($length = 10) {
 /* Declaring variables */
 $root = getcwd();
 $api_key = str_replace("\n",'',file_get_contents($root.'/api.key'));
-$rss_feed = 'https://api.rss2json.com/v1/api.json?rss_url='.urlencode('https://habr.com/en/rss/all/all/?fl=ru').'&count=40&api_key='.$api_key;
+$rss_feed = 'https://api.rss2json.com/v1/api.json?rss_url='.urlencode('https://habr.com/en/rss/all/all/?fl=ru').'&count=60&api_key='.$api_key;
 $rss_feed_f = json_decode(file_get_contents($rss_feed));
 $config = $root . '/config.json';
 $config_f = json_decode(file_get_contents($config));
