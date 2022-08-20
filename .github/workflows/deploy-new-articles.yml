@@ -33,6 +33,7 @@ jobs:
       - name: Process Source rss feed
         run: |
           cd update-action/
+          mkdir posts
           php update.php
           mv {robots.txt,index.html,sitemap.xml} ../
           mv posts/* ../posts/
