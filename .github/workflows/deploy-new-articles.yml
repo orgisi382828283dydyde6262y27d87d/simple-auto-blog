@@ -51,7 +51,7 @@ jobs:
           php update.php
           mv {robots.txt,index.html,sitemap.xml} ../
           mv posts/* ../posts/
-          ls
+          ls ../posts/
           rm api.key
           cd ..
           
