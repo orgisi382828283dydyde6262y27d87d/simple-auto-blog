@@ -1,0 +1,107 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: inherit;
+}
+
+body {
+  color: #000;
+  background-color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  margin: 0px;
+  padding: 0px;
+}
+
+a, a:link, a:active, a:disabled, a:enabled {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00387c;
+}
+
+nav.menu {
+  display: flex;
+  padding: 0px 20px;
+  background: #00387c;
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.posts {
+  padding: 0px 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.post {
+  max-width: 250px;
+  border: 1px solid #dedede;
+  padding: 10px 20px;
+  margin: 10px auto;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.post .title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.post .btn {
+  background: #00387c;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.post:hover {
+  box-shadow: 5px 5px 10px 0px #dedede inset;
+}
+
+main.post-main {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+
+.post-main .title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 17px;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.keyword {
+  border: 1px solid #dedede;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin: 5px 5px;
+}
+
+.content {
+  padding-top: 15px;
+}
+
+.post-main a {
+  color: #00387c;
+}/*# sourceMappingURL=main.css.map */
