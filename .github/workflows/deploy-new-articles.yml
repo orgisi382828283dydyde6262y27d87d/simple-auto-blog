@@ -29,6 +29,18 @@ jobs:
       - name: Download and install php
         run: sudo apt-get install php7.4
 
+      - name: Download and install NPM
+        run: sudo apt-get install npm
+        
+      - name: Install sass
+        run: npm install -g sass
+        
+      - name: Compile SCSS
+        run: | 
+          cd assets/css
+          sass main.scss && echo "Sass compiled Success" || echo "Some error occured"
+          cd ../..
+        
       # Runs a set of commands using the runners shell
       - name: Process Source rss feed
         run: |
