@@ -16,9 +16,8 @@ function get_char_symbols($ssstring, $number=1024){
 
 /* Declaring variables */
 $root = getcwd();
-$api_key = file_get_contents($root.'/api.key');
+$api_key = str_replace("\n",'',file_get_contents($root.'/api.key'));
 $rss_feed = 'https://api.rss2json.com/v1/api.json?rss_url='.urlencode('https://habr.com/en/rss/all/all/').'&count=40&api_key='.$api_key;
-print_r($rss_feed);
 $rss_feed_f = json_decode(file_get_contents($rss_feed));
 $config = $root . '/config.json';
 $config_f = json_decode(file_get_contents($config));
