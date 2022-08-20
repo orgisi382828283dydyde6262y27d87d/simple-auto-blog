@@ -103,7 +103,7 @@ foreach ($rss_feed_f->items as $post){
     }
     $content = str_replace('<img ','<img alt="Image '.generateRandomString(6).'" ',$post->content);
     $categories = $post->categories;
-    $posts_keywords = '<div class="keywords">';
+    $posts_keywords = '';
     $ind = 0;
     $seo_keywords = '';
     foreach ($categories as $cat){
