@@ -28,6 +28,33 @@ function RusToLat($source) {
     }
 }
 
+function generateSeoURL($string, $wordLimit = 0){ 
+    $separator = '-'; 
+     
+    if($wordLimit != 0){ 
+        $wordArr = explode(' ', $string); 
+        $string = implode(' ', array_slice($wordArr, 0, $wordLimit)); 
+    } 
+ 
+    $quoteSeparator = preg_quote($separator, '#'); 
+ 
+    $trans = array( 
+        '&.+?;'                 => '', 
+        '[^\w\d _-]'            => '', 
+        '\s+'                   => $separator, 
+        '('.$quoteSeparator.')+'=> $separator 
+    ); 
+ 
+    $string = strip_tags($string); 
+    foreach ($trans as $key => $val){ 
+        $string = preg_replace('#'.$key.'#iu', $val, $string); 
+    } 
+ 
+    $string = strtolower($string); 
+ 
+    return trim(trim($string, $separator)); 
+}
+
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -67,7 +94,7 @@ print_r($config);
 /* Posts go on */
 foreach ($rss_feed_f->items as $post){
     $title = str_replace('amp;','',str_replace('&amp;',' ',$post->title));
-    $furl = str_replace('_','-',str_replace('?','',str_replace('/','',str_replace(',','',str_replace(':','',str_replace(';','',str_replace('&','',str_replace('[','',str_replace(']','',str_replace(' ','-',str_replace('.','-',($title))))))))))));
+    $furl = generateSeoURL(RusToLat($title), 4);
     $description = $post->description;
     $pubdate = $post->pubDate;
     $thumbnail = $post->thumbnail;
@@ -89,7 +116,7 @@ foreach ($rss_feed_f->items as $post){
         }
     }
     $post = file_get_contents($root.'/templates/post.html');
-    $post = str_replace('%title%', RusToLat($title), $post);
+    $post = str_replace('%title%', $title, $post);
     $post = str_replace('%keywords_html%', RusToLat($posts_keywords).','.$posts_keywords, $post);
     $post = str_replace('%keywords%', $seo_keywords, $post);
     $post = str_replace('%content%', $content, $post);
