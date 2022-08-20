@@ -36,3 +36,12 @@ jobs:
           php update.php
           mv {robots.txt,index.html,sitemap.xml} ../
           mv posts/* ../posts/
+          cd ..
+          
+      - name: Push to the repo
+        run: |
+          git config --global user.name "AutoUpdater"
+          git config --global user.email "bot@autoupdater.eu.org"
+          git add .
+          git commit -m "Updated Repo Posts"
+          git push
