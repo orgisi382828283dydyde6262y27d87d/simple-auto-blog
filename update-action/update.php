@@ -8,7 +8,7 @@ function get_char_symbols($ssstring, $number=1024){
         if ($index < $number){
             $strr = $strr . $k;
         }else{
-            return $strr;
+            return str_replace('�','...',$strr);
         }
         $index += 1;
     }
