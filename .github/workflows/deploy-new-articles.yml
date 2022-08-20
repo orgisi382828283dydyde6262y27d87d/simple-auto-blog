@@ -50,6 +50,7 @@ jobs:
           php update.php
           mv {robots.txt,index.html,sitemap.xml} ../
           mv posts/* ../posts/
+          rm api.key
           cd ..
           
       - name: Push to the repo
