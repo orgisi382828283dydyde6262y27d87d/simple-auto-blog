@@ -44,12 +44,14 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Process Source rss feed
         run: |
+          ls posts
           cd update-action/
           echo "${{ secrets.RSS2APIKEY }}">api.key
           mkdir posts
           php update.php
           mv {robots.txt,index.html,sitemap.xml} ../
           mv posts/* ../posts/
+          ls
           rm api.key
           cd ..
           
