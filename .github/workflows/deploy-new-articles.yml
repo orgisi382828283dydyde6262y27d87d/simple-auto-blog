@@ -38,7 +38,7 @@ jobs:
       - name: Compile SCSS
         run: | 
           cd assets/css
-          sass main.scss && echo "Sass compiled Success" || echo "Some error occured"
+          sass main.scss main.css && echo "Sass compiled Success" || echo "Some error occured"
           cd ../..
         
       # Runs a set of commands using the runners shell
