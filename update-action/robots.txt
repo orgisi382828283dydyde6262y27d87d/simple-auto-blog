@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /update*
-Disallow:
-Sitemap: http://localhost:8188/sitemap.xml
