@@ -14,10 +14,20 @@ function get_char_symbols($ssstring, $number=1024){
     }
 }
 
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
 /* Declaring variables */
 $root = getcwd();
 $api_key = str_replace("\n",'',file_get_contents($root.'/api.key'));
-$rss_feed = 'https://api.rss2json.com/v1/api.json?rss_url='.urlencode('https://habr.com/en/rss/all/all/').'&count=40&api_key='.$api_key;
+$rss_feed = 'https://api.rss2json.com/v1/api.json?rss_url='.urlencode('https://habr.com/en/rss/all/all/?fl=ru').'&count=40&api_key='.$api_key;
 $rss_feed_f = json_decode(file_get_contents($rss_feed));
 $config = $root . '/config.json';
 $config_f = json_decode(file_get_contents($config));
@@ -43,14 +53,14 @@ print_r($config);
 /* Posts go on */
 foreach ($rss_feed_f->items as $post){
     $title = str_replace('amp;','',str_replace('&amp;',' ',$post->title));
-    $furl = str_replace('?','',str_replace('/','',str_replace(',','',str_replace(':','',str_replace(';','',str_replace('&','',str_replace('[','',str_replace(']','',str_replace(' ','-',str_replace('.','-',($title)))))))))));
+    $furl = str_replace('_','-',str_replace('?','',str_replace('/','',str_replace(',','',str_replace(':','',str_replace(';','',str_replace('&','',str_replace('[','',str_replace(']','',str_replace(' ','-',str_replace('.','-',($title))))))))))));
     $description = $post->description;
     $pubdate = $post->pubDate;
     $thumbnail = $post->thumbnail;
     if (!$thumbnail){
         $thumbnail = '/assets/images/post-preview.png';
     }
-    $content = $post->content;
+    $content = str_replace('<img ','<img alt="Image '.generateRandomString(6).'" ',$post->content);
     $categories = $post->categories;
     $posts_keywords = '<div class="keywords">';
     $ind = 0;
@@ -88,6 +98,7 @@ $index_h = str_replace('%description%', $descriptions, $index_h);
 $index_h = str_replace('%keywords%', $keywordss, $index_h);
 $index_h = str_replace('%current_url%', $website_url, $index_h);
 $index_h = str_replace('%img%', $website_url.'/assets/images/preview.png', $index_h);
+
 file_put_contents($root.'/index.html',$index_h);
 
 $sitemap .= '</urlset>';
