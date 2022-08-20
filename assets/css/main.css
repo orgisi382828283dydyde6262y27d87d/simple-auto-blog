@@ -101,6 +101,10 @@ main.post-main {
 .content {
   padding-top: 15px;
 }
+.content img {
+  max-width: 100%;
+  height: auto;
+}
 
 .post-main a {
   color: #00387c;
