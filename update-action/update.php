@@ -43,7 +43,7 @@ print_r($config);
 /* Posts go on */
 foreach ($rss_feed_f->items as $post){
     $title = $post->title;
-    $furl = str_replace(',','',str_replace(':','',str_replace(';','',str_replace('&','',str_replace('[','',str_replace(']','',str_replace(' ','-',str_replace('.','-',($title)))))))));
+    $furl = str_replace('/','',str_replace(',','',str_replace(':','',str_replace(';','',str_replace('&','',str_replace('[','',str_replace(']','',str_replace(' ','-',str_replace('.','-',($title))))))))));
     $description = $post->description;
     $pubdate = $post->pubDate;
     $thumbnail = $post->thumbnail;
@@ -73,7 +73,7 @@ foreach ($rss_feed_f->items as $post){
     $post = str_replace('%img%', $thumbnail, $post);
     $post = str_replace('%description', str_replace("\n", '', strip_tags($content)), $post);
     $post = str_replace('%logo%', $app_name, $post);
-    file_put_contents($root.'/posts/'.$furl.'.html', $post);
+    file_put_contents(($root.'/posts/'.$furl.'.html'), $post);
     $sitemap .= "\n<url>";
     $sitemap .= "\n   <loc>".$website_url.'/posts/'.$furl."/</loc>";
     $sitemap .= "\n   <lastmod>".explode(' ', $pubdate)[0]."</lastmod>";
