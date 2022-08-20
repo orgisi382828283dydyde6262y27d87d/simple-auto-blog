@@ -40,7 +40,18 @@
                 webvisor:true
            });
         </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="Metrics" /></div></noscript>
         <!-- /Yandex.Metrika counter -->
+        <script type="text/javascript">
+            let all_description = document.querySelectorAll('.description');
+            for (let dsc in all_description){
+                try{
+                    let ddsc = all_description[dsc];
+                    ddsc.innerText = ddsc.innerText.replace('�','');
+                }catch{
+                    let j = '';
+                }
+            }
+        </script>
     </body>
 </html>
