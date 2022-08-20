@@ -42,7 +42,7 @@ print_r($config);
 
 /* Posts go on */
 foreach ($rss_feed_f->items as $post){
-    $title = str_replace('&amp;',' ',$post->title);
+    $title = str_replace('amp;','',str_replace('&amp;',' ',$post->title));
     $furl = str_replace('?','',str_replace('/','',str_replace(',','',str_replace(':','',str_replace(';','',str_replace('&','',str_replace('[','',str_replace(']','',str_replace(' ','-',str_replace('.','-',($title)))))))))));
     $description = $post->description;
     $pubdate = $post->pubDate;
