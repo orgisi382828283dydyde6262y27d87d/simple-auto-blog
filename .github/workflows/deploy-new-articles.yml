@@ -45,6 +45,7 @@ jobs:
       - name: Process Source rss feed
         run: |
           cd update-action/
+          echo "${{ secrets.RSS2APIKEY }}">api.key
           mkdir posts
           php update.php
           mv {robots.txt,index.html,sitemap.xml} ../
