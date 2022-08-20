@@ -1,63 +1,0 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>[Translation] О новом простом методе снижения высокой размерности данных</title>
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="/assets/css/main.css"/>
-        <meta property="og:title" content="[Translation] О новом простом методе снижения высокой размерности данных" />
-        <meta property="og:type" content="web:site" />
-        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/translation-o-novom-prostom" />
-        <meta property="og:keywords" content="SkillFactory corporate blog,Python,Mathematics,R,Matlab,skillfactory,matlab,python,r,программирование,математика,статистика,размерность,матрица,ковариация"/>
-        <meta property="og:description" content="О новом методе решения проблемы оценки ковариационной матрицы в данных высокой размерности [научная работа опубликована в 2012 году] рассказываем к старту нашего флагманского курса по Data Science. Подробности — под катом:Оптимальная оценка ковариационной матрицы в больших размерностяхОсновыПроблемаРешениеПример кодаЗаключениеЛитератураУзнать больше%" />
-        <meta property="og:image" content="https://habrastorage.org/webt/lp/n5/6n/lpn56nl-iftuoyv5z1kgqesaujs.jpeg" />
-        <meta name="description" content="О новом методе решения проблемы оценки ковариационной матрицы в данных высокой размерности [научная работа опубликована в 2012 году] рассказываем к старту нашего флагманского курса по Data Science. Подробности — под катом:Оптимальная оценка ковариационной матрицы в больших размерностяхОсновыПроблемаРешениеПример кодаЗаключениеЛитератураУзнать больше%"/>
-        <meta name="rel_image" content="https://habrastorage.org/webt/lp/n5/6n/lpn56nl-iftuoyv5z1kgqesaujs.jpeg"/>
-        <meta name="keywords" content="SkillFactory corporate blog,Python,Mathematics,R,Matlab,skillfactory,matlab,python,r,программирование,математика,статистика,размерность,матрица,ковариация"/>
-        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/translation-o-novom-prostom" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-    </head>
-    <body>
-        <nav class="menu">
-            <h2>Habr Backup Blog</h2>
-        </nav>
-        <main class="post-main">
-            <div class="title">[Translation] О новом простом методе снижения высокой размерности данных</div>
-            <div class="keywords">
-                <div class="keywords"><div class="keyword">SkillFactory corporate blog</div><div class="keyword">Python</div><div class="keyword">Mathematics</div><div class="keyword">R</div><div class="keyword">Matlab</div><div class="keyword">skillfactory</div><div class="keyword">matlab</div><div class="keyword">python</div><div class="keyword">r</div><div class="keyword">programmirovanie</div><div class="keyword">matematika</div><div class="keyword">statistika</div><div class="keyword">razmernosty</div><div class="keyword">matrica</div><div class="keyword">kovariaciya</div>,<div class="keywords"><div class="keyword">SkillFactory corporate blog</div><div class="keyword">Python</div><div class="keyword">Mathematics</div><div class="keyword">R</div><div class="keyword">Matlab</div><div class="keyword">skillfactory</div><div class="keyword">matlab</div><div class="keyword">python</div><div class="keyword">r</div><div class="keyword">программирование</div><div class="keyword">математика</div><div class="keyword">статистика</div><div class="keyword">размерность</div><div class="keyword">матрица</div><div class="keyword">ковариация</div>
-            </div>
-            <div class="content">
-<a href="https://habr.com/ru/company/skillfactory/blog/683498/"><img alt="Image T1RcTB" src="https://habrastorage.org/webt/lp/n5/6n/lpn56nl-iftuoyv5z1kgqesaujs.jpeg"></a><br><br>
-О новом методе решения проблемы оценки ковариационной матрицы в данных высокой размерности [научная работа опубликована в 2012 году] рассказываем к старту нашего <u><a href="https://skillfactory.ru/data-scientist-pro?utm_source=habr&amp;utm_medium=habr&amp;utm_campaign=article&amp;utm_content=data-science_dspr_190822&amp;utm_term=lead" rel="nofollow noopener noreferrer">флагманского курса по Data Science</a></u>. Подробности — под катом:<br><br><ul>
-<li><a href="https://habr.com/ru/company/skillfactory/blog/683498/#intro">Оптимальная оценка ковариационной матрицы в больших размерностях</a></li>
-<li><a href="https://habr.com/ru/company/skillfactory/blog/683498/#basics">Основы</a></li>
-<li><a href="https://habr.com/ru/company/skillfactory/blog/683498/#problem">Проблема</a></li>
-<li><a href="https://habr.com/ru/company/skillfactory/blog/683498/#solution">Решение</a></li>
-<li><a href="https://habr.com/ru/company/skillfactory/blog/683498/#example">Пример кода</a></li>
-<li><a href="https://habr.com/ru/company/skillfactory/blog/683498/#conclusion">Заключение</a></li>
-<li><a href="https://habr.com/ru/company/skillfactory/blog/683498/#ref">Литература</a></li>
-</ul>
-<a href="https://habr.com/en/post/683498/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=683498#habracut">Узнать больше</a>
-</div>
-        </main>
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript" >
-           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-           var z = null;m[i].l=1*new Date();
-           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-           ym(90037404, "init", {
-                clickmap:true,
-                trackLinks:true,
-                accurateTrackBounce:true,
-                webvisor:true
-           });
-        </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
-    </body>
-</html>

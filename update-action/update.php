@@ -125,10 +125,6 @@ foreach ($rss_feed_f->items as $post){
     $post = str_replace('%description', str_replace("\n", '', strip_tags($content)), $post);
     $post = str_replace('%logo%', $app_name, $post);
     file_put_contents(($root.'/posts/'.$furl.'.html'), $post);
-    $sitemap .= "\n<url>";
-    $sitemap .= "\n   <loc>".$website_url.'/posts/'.$furl."/</loc>";
-    $sitemap .= "\n   <lastmod>".explode(' ', $pubdate)[0]."</lastmod>";
-    $sitemap .= "\n</url>";
     $posts_html .= '<div class="post"><div class="title">'.$title.'</div><div class="description">'.str_replace("\n", '', get_char_symbols(strip_tags($content), 100)).'</div><a class="btn" href="'.$website_url.'/posts/'.$furl.'">Read Post</a></div>';
 }
 
@@ -141,6 +137,22 @@ $index_h = str_replace('%current_url%', $website_url, $index_h);
 $index_h = str_replace('%img%', $website_url.'/assets/images/preview.png', $index_h);
 
 file_put_contents($root.'/index.html',$index_h);
+
+if ($handle = opendir($root.'/../posts/.')) {
+
+    while (false !== ($entry = readdir($handle))) {
+
+        if ($entry != "." && $entry != "..") {
+
+            $sitemap .= "\n<url>";
+            $sitemap .= "\n   <loc>".$website_url."/posts/".str_replace('.html','/',$entry)."/</loc>";
+            $sitemap .= "\n   <lastmod>".date("Y-m-d")."</lastmod>";
+            $sitemap .= "\n</url>";
+        }
+    }
+
+    closedir($handle);
+}
 
 $sitemap .= '</urlset>';
 file_put_contents($root.'/sitemap.xml', $sitemap);
