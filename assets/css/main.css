@@ -26,6 +26,11 @@ a:hover {
   color: #00387c;
 }
 
+@media screen and (max-width: 600px) {
+  .post {
+    max-width: 100% !important;
+  }
+}
 nav.menu {
   display: flex;
   padding: 0px 20px;
