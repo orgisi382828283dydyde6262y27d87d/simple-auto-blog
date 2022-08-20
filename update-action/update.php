@@ -145,7 +145,7 @@ if ($handle = opendir($root.'/../posts/.')) {
         if ($entry != "." && $entry != "..") {
 
             $sitemap .= "\n<url>";
-            $sitemap .= "\n   <loc>".$website_url."/posts/".str_replace('.html','/',$entry)."/</loc>";
+            $sitemap .= "\n   <loc>".$website_url."/posts/".str_replace('.html','/',$entry)."</loc>";
             $sitemap .= "\n   <lastmod>".date("Y-m-d")."</lastmod>";
             $sitemap .= "\n</url>";
         }
