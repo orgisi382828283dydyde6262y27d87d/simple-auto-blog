@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Операционная система FreeBSD на ноутбуке Lenovo</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="Операционная система FreeBSD на ноутбуке Lenovo" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/operacionnaya-sistema-freebsd-na" />
+        <meta property="og:keywords" content="System administration,*nix,FreeBSD,X11,desktop"/>
+        <meta property="og:description" content=" 	В этой статье я хочу поделиться с общественностью некоторыми аспектами настройки и эксплуатации операционной системы FreeBSD при установке на современный ноутбук с целью использования его как основного рабочего места инженера (программиста, электронщика или конструктора). В своих предыдущих статьях я упоминал, что являюсь тонким ценителем этой ОС и с некоторых пор организовал своё рабочее место под управлением FreeBSD, о чем ни сколько не пожалел, и даже наоборот — мои волосы теперь по-настоящему мягкие и шелковистые.  	Моя статья посвященная настройке САПР КОМПАС-3D под FreeBSD получила ряд одобрительных комментариев, поэтому мне захотелось продолжить тему «FreeBSD на десктопе». К тому же, есть добрые предпосылки — недавно я приобрел новый современный ноутбук Lenovo Ideapad 3 Gaming взамен окончательно рассыпавшегося на несколько частей Asus VX7, а с ним и массу приятного и затейливого опыта установки и настройки ОС FreeBSD для работы на новом «железе». В этой статье я не будут касаться установки и настройки специализированного ПО и прочих САПР, будет рассмотрен только системный вопрос: установка операционной системы, драйверов, патчей, библиотек, настройка и борьба с железом. Будет много выдержек из системного руководства (мануала - man) — уж сильно я к нему пристрастился за последние 130 лет.Ссылка на статью в формате PDF для "офф-лайн" прочтения Продолжить читать журнал%" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta name="description" content=" 	В этой статье я хочу поделиться с общественностью некоторыми аспектами настройки и эксплуатации операционной системы FreeBSD при установке на современный ноутбук с целью использования его как основного рабочего места инженера (программиста, электронщика или конструктора). В своих предыдущих статьях я упоминал, что являюсь тонким ценителем этой ОС и с некоторых пор организовал своё рабочее место под управлением FreeBSD, о чем ни сколько не пожалел, и даже наоборот — мои волосы теперь по-настоящему мягкие и шелковистые.  	Моя статья посвященная настройке САПР КОМПАС-3D под FreeBSD получила ряд одобрительных комментариев, поэтому мне захотелось продолжить тему «FreeBSD на десктопе». К тому же, есть добрые предпосылки — недавно я приобрел новый современный ноутбук Lenovo Ideapad 3 Gaming взамен окончательно рассыпавшегося на несколько частей Asus VX7, а с ним и массу приятного и затейливого опыта установки и настройки ОС FreeBSD для работы на новом «железе». В этой статье я не будут касаться установки и настройки специализированного ПО и прочих САПР, будет рассмотрен только системный вопрос: установка операционной системы, драйверов, патчей, библиотек, настройка и борьба с железом. Будет много выдержек из системного руководства (мануала - man) — уж сильно я к нему пристрастился за последние 130 лет.Ссылка на статью в формате PDF для "офф-лайн" прочтения Продолжить читать журнал%"/>
+        <meta name="rel_image" content="/assets/images/post-preview.png"/>
+        <meta name="keywords" content="System administration,*nix,FreeBSD,X11,desktop"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/operacionnaya-sistema-freebsd-na" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        <main class="post-main">
+            <div class="title">Операционная система FreeBSD на ноутбуке Lenovo</div>
+            <div class="keywords">
+                <div class="keyword">System administration</div><div class="keyword">*nix</div><div class="keyword">FreeBSD</div><div class="keyword">X11</div><div class="keyword">desktop</div><div class="keyword">System administration</div><div class="keyword">*nix</div><div class="keyword">FreeBSD</div><div class="keyword">X11</div><div class="keyword">desktop</div>
+            </div>
+            <div class="content">
+<p> 	В этой статье я хочу поделиться с общественностью некоторыми аспектами настройки и эксплуатации операционной системы FreeBSD при установке на современный ноутбук с целью использования его как основного рабочего места инженера (программиста, электронщика или конструктора). В своих предыдущих статьях я упоминал, что являюсь тонким ценителем этой ОС и с некоторых пор организовал своё рабочее место под управлением FreeBSD, о чем ни сколько не пожалел, и даже наоборот — мои волосы теперь по-настоящему <a href="https://www.youtube.com/watch?v=r8FLqoSIG_4" rel="noopener noreferrer nofollow">мягкие и шелковистые</a>.  </p>
+<p>	Моя статья посвященная настройке САПР <a href="https://habr.com/en/post/578660/" rel="noopener noreferrer nofollow">КОМПАС-3D под FreeBSD</a> получила ряд одобрительных комментариев, поэтому мне захотелось продолжить тему «FreeBSD на десктопе». К тому же, есть добрые предпосылки — недавно я приобрел новый современный ноутбук <strong>Lenovo Ideapad 3 Gaming</strong> взамен окончательно рассыпавшегося на несколько частей Asus VX7, а с ним и массу приятного и затейливого опыта установки и настройки ОС FreeBSD для работы на новом «железе». В этой статье я не будут касаться установки и настройки специализированного ПО и прочих САПР, будет рассмотрен только системный вопрос: установка операционной системы, драйверов, патчей, библиотек, настройка и борьба с железом. Будет много выдержек из системного руководства (мануала - man) — уж сильно я к нему пристрастился за последние 130 лет.</p>
+<p><strong><a href="https://www.fabmicro.ru/pub/articles/FreeBSD_on_Laptop.pdf" rel="noopener noreferrer nofollow">Ссылка на статью в формате PDF для "офф-лайн" прочтения</a></strong></p>
+<p></p> <a href="https://habr.com/en/post/683702/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=683702#habracut">Продолжить читать журнал</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
