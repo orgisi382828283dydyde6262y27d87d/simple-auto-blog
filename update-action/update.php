@@ -1,7 +1,15 @@
 <?php
+function st_split($string){
+    $resultArr = [];
+    $strLength = strlen($string);
+    for ($i = 0; $i < $strLength; $i++){
+        $resultArr[$i] = $string[$i];
+    }
+    return $resultArr;
+}
 /* Declaring functions */
 function get_char_symbols($ssstring, $number=1024){
-    $sstring=str_split($ssstring);
+    $sstring=st_split($ssstring);
     $index = 0;
     $strr = '';
     foreach($sstring as $k){
