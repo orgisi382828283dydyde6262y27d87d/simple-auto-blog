@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Мне бы только инструменты… Или как мы реализовали сервис обработки логов печати</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="Мне бы только инструменты… Или как мы реализовали сервис обработки логов печати" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/mne-by-tolyko-instrumenty" />
+        <meta property="og:keywords" content="Инфосистемы Джет corporate blog,.NET,C#,c#,blazor,логи печати"/>
+        <meta property="og:description" content="У нашего заказчика из финансовой сферы были два домена, несколько тысяч терминальных пользователей, пара тысяч принтеров, десять принт-серверов, а также гигабайты логов печати. Именно поэтому неудивительно, что у него появилась необходимость создать сервис, который сможет обрабатывать логи со всех принт-серверов и выгружать информацию в подходящем виде (по определенным требованиям).Сначала это выглядело как разовая задача: есть excel-файл со списком «табельный номер — имя пользователя», необходимо собрать логи и предоставить суммарную статистику по печати за месяц с разбивкой по городам. Однако, когда приступили к реализации, поняли, что все не так-то просто, как казалось и начали думать над отдельным сервером и сайтом. Взяли .NET 6, Blazor, немного PowerShell, WMI и sqlite. Что же получилось из этого «винегрета»? Читайте ниже. Читать далее%" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta name="description" content="У нашего заказчика из финансовой сферы были два домена, несколько тысяч терминальных пользователей, пара тысяч принтеров, десять принт-серверов, а также гигабайты логов печати. Именно поэтому неудивительно, что у него появилась необходимость создать сервис, который сможет обрабатывать логи со всех принт-серверов и выгружать информацию в подходящем виде (по определенным требованиям).Сначала это выглядело как разовая задача: есть excel-файл со списком «табельный номер — имя пользователя», необходимо собрать логи и предоставить суммарную статистику по печати за месяц с разбивкой по городам. Однако, когда приступили к реализации, поняли, что все не так-то просто, как казалось и начали думать над отдельным сервером и сайтом. Взяли .NET 6, Blazor, немного PowerShell, WMI и sqlite. Что же получилось из этого «винегрета»? Читайте ниже. Читать далее%"/>
+        <meta name="rel_image" content="/assets/images/post-preview.png"/>
+        <meta name="keywords" content="Инфосистемы Джет corporate blog,.NET,C#,c#,blazor,логи печати"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/mne-by-tolyko-instrumenty" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        
+        <main class="post-main">
+            <div class="title">Мне бы только инструменты… Или как мы реализовали сервис обработки логов печати</div>
+            <div class="keywords">
+                <div class="keyword">Infosistemy Dzhet corporate blog</div><div class="keyword">.NET</div><div class="keyword">C#</div><div class="keyword">c#</div><div class="keyword">blazor</div><div class="keyword">logi pechati</div><div class="keyword">Инфосистемы Джет corporate blog</div><div class="keyword">.NET</div><div class="keyword">C#</div><div class="keyword">c#</div><div class="keyword">blazor</div><div class="keyword">логи печати</div>
+            </div>
+            <div class="content">
+<p>У нашего заказчика из финансовой сферы были два домена, несколько тысяч терминальных пользователей, пара тысяч принтеров, десять принт-серверов, а также гигабайты логов печати. Именно поэтому неудивительно, что у него появилась необходимость создать сервис, который сможет обрабатывать логи со всех принт-серверов и выгружать информацию в подходящем виде (по определенным требованиям).</p>
+<p>Сначала это выглядело как разовая задача: есть excel-файл со списком «табельный номер — имя пользователя», необходимо собрать логи и предоставить суммарную статистику по печати за месяц с разбивкой по городам. Однако, когда приступили к реализации, поняли, что все не так-то просто, как казалось и начали думать над отдельным сервером и сайтом. Взяли .NET 6, Blazor, немного PowerShell, WMI и sqlite. Что же получилось из этого «винегрета»? Читайте ниже.</p> <a href="https://habr.com/en/post/683900/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=683900#habracut">Читать далее</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>

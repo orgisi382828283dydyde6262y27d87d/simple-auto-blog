@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Практика динамического анализа. Особенности реализации и нюансы при встраивании в процесс</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="Практика динамического анализа. Особенности реализации и нюансы при встраивании в процесс" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/praktika-dinamicheskogo-analiza-osobennosti" />
+        <meta property="og:keywords" content="Swordfish Security corporate blog,Information Security,DevOps,security,dast,динамический анализ,devsecops,безопасность,ssdlc,bsimm,динамика,безопасная разработка,web"/>
+        <meta property="og:description" content="Привет, Хабр!И снова в эфире Юрий Шабалин, главный архитектор компании Swordfish Security. Мы уже достаточно давно занимаемся консалтингом в области построения процессов безопасной разработки для своих клиентов. В процессе мы постоянно сталкиваемся с различными нюансами и сложностями при реализации практик DevSecOps. Ранее мы уже обсуждали SAST и OSA, а сегодня я бы хотел поговорить про практику автоматизированного динамического анализа приложений (DAST). А именно, какие подводные камни нас ждут при внедрении данной практики, какие особенности следует учитывать и как избежать проблем. Ну что же, приступим. Читать далее%" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta name="description" content="Привет, Хабр!И снова в эфире Юрий Шабалин, главный архитектор компании Swordfish Security. Мы уже достаточно давно занимаемся консалтингом в области построения процессов безопасной разработки для своих клиентов. В процессе мы постоянно сталкиваемся с различными нюансами и сложностями при реализации практик DevSecOps. Ранее мы уже обсуждали SAST и OSA, а сегодня я бы хотел поговорить про практику автоматизированного динамического анализа приложений (DAST). А именно, какие подводные камни нас ждут при внедрении данной практики, какие особенности следует учитывать и как избежать проблем. Ну что же, приступим. Читать далее%"/>
+        <meta name="rel_image" content="/assets/images/post-preview.png"/>
+        <meta name="keywords" content="Swordfish Security corporate blog,Information Security,DevOps,security,dast,динамический анализ,devsecops,безопасность,ssdlc,bsimm,динамика,безопасная разработка,web"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/praktika-dinamicheskogo-analiza-osobennosti" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        
+        <main class="post-main">
+            <div class="title">Практика динамического анализа. Особенности реализации и нюансы при встраивании в процесс</div>
+            <div class="keywords">
+                <div class="keyword">Swordfish Security corporate blog</div><div class="keyword">Information Security</div><div class="keyword">DevOps</div><div class="keyword">security</div><div class="keyword">dast</div><div class="keyword">dinamicheskij analiz</div><div class="keyword">devsecops</div><div class="keyword">bezopasnosty</div><div class="keyword">ssdlc</div><div class="keyword">bsimm</div><div class="keyword">dinamika</div><div class="keyword">bezopasnaya razrabotka</div><div class="keyword">web</div><div class="keyword">Swordfish Security corporate blog</div><div class="keyword">Information Security</div><div class="keyword">DevOps</div><div class="keyword">security</div><div class="keyword">dast</div><div class="keyword">динамический анализ</div><div class="keyword">devsecops</div><div class="keyword">безопасность</div><div class="keyword">ssdlc</div><div class="keyword">bsimm</div><div class="keyword">динамика</div><div class="keyword">безопасная разработка</div><div class="keyword">web</div>
+            </div>
+            <div class="content">
+<p>Привет, Хабр!</p>
+<p>И снова в эфире Юрий Шабалин, главный архитектор компании Swordfish Security. Мы уже достаточно давно занимаемся консалтингом в области построения процессов безопасной разработки для своих клиентов. В процессе мы постоянно сталкиваемся с различными нюансами и сложностями при реализации практик DevSecOps. Ранее мы уже обсуждали SAST и OSA, а сегодня я бы хотел поговорить про практику автоматизированного динамического анализа приложений (DAST). А именно, какие подводные камни нас ждут при внедрении данной практики, какие особенности следует учитывать и как избежать проблем. </p>
+<p>Ну что же, приступим.</p> <a href="https://habr.com/en/post/683958/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=683958#habracut">Читать далее</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
