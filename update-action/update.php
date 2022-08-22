@@ -16,7 +16,7 @@ function get_char_symbols($ssstring, $number=1024){
         if ($index < $number){
             $strr = $strr . $k;
         }else{
-            return str_replace('�','...',$strr);
+            return iconv("UTF-8", "UTF-8//IGNORE",$strr);
         }
         $index += 1;
     }
