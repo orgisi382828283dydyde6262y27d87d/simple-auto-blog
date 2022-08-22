@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>[recovery mode] Восстановление Биткоин Кошелька через короткие подписи ECDSA</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="[recovery mode] Восстановление Биткоин Кошелька через короткие подписи ECDSA" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/recovery-mode-vosstanovlenie-bitkoin" />
+        <meta property="og:keywords" content="Decentralized networks,Cryptography,Python,GitHub,Development for IOT,биткоин,blockchain,private key,private keys,cryptocurrencies,bitcoin,ecdsa,cryptography,wallet,wallet.dat"/>
+        <meta property="og:description" content="Всем нам известно, что раскрываемость секретного ключа в подписи ECDSA может привести к полному восстановлению Биткоин Кошелька. В наших более ранних статьях мы рассматривали слабости и уязвимости в транзакциях блокчейна, но так же существуют короткие подписи ECDSA которые так же приводят к полному восстановлению Биткоин Кошелька.Почему же эти подписи ECDSA называются короткими?Ответ на этот вопрос вы можете получить из обсуждаемой темы: "Самая короткая подпись ECDSA" [The shortest ECDSA signature]В прошлой нашей статье: "Уменьшение приватного ключа через скалярное умножение используем библиотеку ECPy + Google Colab" мы создали Python-скрипт: maxwell.py который сгенерировал для нас довольно интересный публичный ключ(0x3b78ce563f89a0ed9414f5aa28ad0d96d6795f9c63 , 0xc0c686408d517dfd67c2367651380d00d126e4229631fd03f8ff35eef1a61e3c)Как мы знаем значение сигнатуры "R" это и есть публичный ключ от секретного ключа (Nonce)Взгляните на Blockchain транзакцию: 11e6b169701a9047f3ddbb9bc4d4ab1a148c430ba4a5929764e97e76031f4ee3RawTX:0100000001afddd5c9f05bd937b24a761606581c0cddd6696e05a25871279f75b7f6cf891f250000005f3c303902153b78ce563f89a0ed9414f5aa28ad0d96d6795f9c6302200a963d693c008f0f8016cfc7861c7f5d8c4e11e11725f8be747bb77d8755f1b8012103151033d660dc0ef657f379065cab49932ce4fb626d92e50d4194e026328af853ffffffff010000000000000000016a00000000 Размер этой транзакции всего лишь: 156 байтКак можно восстановить Биткоин Кошелек через короткие подписи ECDSA?В криптоанализе блокчейна криптовалюты Bitcoin мы используем собственный Bash-скрипт: btcrecover.sh Читать далее%" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta name="description" content="Всем нам известно, что раскрываемость секретного ключа в подписи ECDSA может привести к полному восстановлению Биткоин Кошелька. В наших более ранних статьях мы рассматривали слабости и уязвимости в транзакциях блокчейна, но так же существуют короткие подписи ECDSA которые так же приводят к полному восстановлению Биткоин Кошелька.Почему же эти подписи ECDSA называются короткими?Ответ на этот вопрос вы можете получить из обсуждаемой темы: "Самая короткая подпись ECDSA" [The shortest ECDSA signature]В прошлой нашей статье: "Уменьшение приватного ключа через скалярное умножение используем библиотеку ECPy + Google Colab" мы создали Python-скрипт: maxwell.py который сгенерировал для нас довольно интересный публичный ключ(0x3b78ce563f89a0ed9414f5aa28ad0d96d6795f9c63 , 0xc0c686408d517dfd67c2367651380d00d126e4229631fd03f8ff35eef1a61e3c)Как мы знаем значение сигнатуры "R" это и есть публичный ключ от секретного ключа (Nonce)Взгляните на Blockchain транзакцию: 11e6b169701a9047f3ddbb9bc4d4ab1a148c430ba4a5929764e97e76031f4ee3RawTX:0100000001afddd5c9f05bd937b24a761606581c0cddd6696e05a25871279f75b7f6cf891f250000005f3c303902153b78ce563f89a0ed9414f5aa28ad0d96d6795f9c6302200a963d693c008f0f8016cfc7861c7f5d8c4e11e11725f8be747bb77d8755f1b8012103151033d660dc0ef657f379065cab49932ce4fb626d92e50d4194e026328af853ffffffff010000000000000000016a00000000 Размер этой транзакции всего лишь: 156 байтКак можно восстановить Биткоин Кошелек через короткие подписи ECDSA?В криптоанализе блокчейна криптовалюты Bitcoin мы используем собственный Bash-скрипт: btcrecover.sh Читать далее%"/>
+        <meta name="rel_image" content="/assets/images/post-preview.png"/>
+        <meta name="keywords" content="Decentralized networks,Cryptography,Python,GitHub,Development for IOT,биткоин,blockchain,private key,private keys,cryptocurrencies,bitcoin,ecdsa,cryptography,wallet,wallet.dat"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/recovery-mode-vosstanovlenie-bitkoin" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        <main class="post-main">
+            <div class="title">[recovery mode] Восстановление Биткоин Кошелька через короткие подписи ECDSA</div>
+            <div class="keywords">
+                <div class="keyword">Decentralized networks</div><div class="keyword">Cryptography</div><div class="keyword">Python</div><div class="keyword">GitHub</div><div class="keyword">Development for IOT</div><div class="keyword">bitkoin</div><div class="keyword">blockchain</div><div class="keyword">private key</div><div class="keyword">private keys</div><div class="keyword">cryptocurrencies</div><div class="keyword">bitcoin</div><div class="keyword">ecdsa</div><div class="keyword">cryptography</div><div class="keyword">wallet</div><div class="keyword">wallet.dat</div><div class="keyword">Decentralized networks</div><div class="keyword">Cryptography</div><div class="keyword">Python</div><div class="keyword">GitHub</div><div class="keyword">Development for IOT</div><div class="keyword">биткоин</div><div class="keyword">blockchain</div><div class="keyword">private key</div><div class="keyword">private keys</div><div class="keyword">cryptocurrencies</div><div class="keyword">bitcoin</div><div class="keyword">ecdsa</div><div class="keyword">cryptography</div><div class="keyword">wallet</div><div class="keyword">wallet.dat</div>
+            </div>
+            <div class="content">
+<p>Всем нам известно, что раскрываемость секретного ключа в подписи ECDSA может привести к полному восстановлению Биткоин Кошелька. В наших более ранних статьях мы рассматривали <a href="https://habr.com/ru/post/671932/" rel="noopener noreferrer nofollow">слабости и уязвимости</a> в транзакциях блокчейна, но так же существуют короткие подписи ECDSA которые так же приводят к полному восстановлению Биткоин Кошелька.</p>
+<p>Почему же эти подписи ECDSA называются короткими?</p>
+<p>Ответ на этот вопрос вы можете получить из обсуждаемой темы: <strong><a href="https://bitcoin.stackexchange.com/questions/38513/the-shortest-ecdsa-signature" rel="noopener noreferrer nofollow">"Самая короткая подпись ECDSA" [The shortest ECDSA signature]</a></strong></p>
+<p>В прошлой нашей статье: <a href="https://habr.com/ru/post/682220/" rel="noopener noreferrer nofollow"><em>"Уменьшение приватного ключа через скалярное умножение используем библиотеку ECPy + Google Colab"</em></a><em> </em>мы создали <em>Python</em>-скрипт: <a href="https://github.com/demining/CryptoDeepTools/blob/main/08ReducePrivateKey/maxwell.py" rel="noopener noreferrer nofollow">maxwell.py</a> который сгенерировал для нас довольно интересный публичный ключ</p>
+<p><code>(0x3b78ce563f89a0ed9414f5aa28ad0d96d6795f9c63 , 0xc0c686408d517dfd67c2367651380d00d126e4229631fd03f8ff35eef1a61e3c)</code></p>
+<p>Как мы знаем значение сигнатуры <code>"R"</code> это и есть публичный ключ от секретного ключа <code>(Nonce)</code></p>
+<p>Взгляните на Blockchain транзакцию: <strong><a href="https://btc.exan.tech/tx/11e6b169701a9047f3ddbb9bc4d4ab1a148c430ba4a5929764e97e76031f4ee3" rel="noopener noreferrer nofollow">11e6b169701a9047f3ddbb9bc4d4ab1a148c430ba4a5929764e97e76031f4ee3</a></strong></p>
+<p>RawTX:</p>
+<p><code>0100000001afddd5c9f05bd937b24a761606581c0cddd6696e05a25871279f75b7f6cf891f250000005f3c303902153b78ce563f89a0ed9414f5aa28ad0d96d6795f9c6302200a963d693c008f0f8016cfc7861c7f5d8c4e11e11725f8be747bb77d8755f1b8012103151033d660dc0ef657f379065cab49932ce4fb626d92e50d4194e026328af853ffffffff010000000000000000016a00000000 </code></p>
+<p>Размер этой транзакции всего лишь: <code>156 байт</code></p>
+<p>Как можно восстановить Биткоин Кошелек через короткие подписи ECDSA?</p>
+<p>В криптоанализе блокчейна криптовалюты Bitcoin мы используем собственный <em>Bas</em>h-скрипт: <code>btcrecover.sh</code></p> <a href="https://habr.com/en/post/683802/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=683802#habracut">Читать далее</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
