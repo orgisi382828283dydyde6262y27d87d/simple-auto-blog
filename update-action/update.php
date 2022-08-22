@@ -1,4 +1,20 @@
 <?php
+function ConvertToUTF8($text){
+
+    $encoding = mb_detect_encoding($text, mb_detect_order(), false);
+
+    if($encoding == "UTF-8")
+    {
+        $text = mb_convert_encoding($text, 'UTF-8', 'UTF-8');    
+    }
+
+
+    $out = iconv(mb_detect_encoding($text, mb_detect_order(), false), "UTF-8//IGNORE", $text);
+
+
+    return $out;
+}
+
 function st_split($string){
     $resultArr = [];
     $strLength = strlen($string);
@@ -16,7 +32,7 @@ function get_char_symbols($ssstring, $number=1024){
         if ($index < $number){
             $strr = $strr . $k;
         }else{
-            return iconv("UTF-8", "UTF-8//IGNORE",$strr);
+            return ConvertToUTF8($strr);
         }
         $index += 1;
     }
