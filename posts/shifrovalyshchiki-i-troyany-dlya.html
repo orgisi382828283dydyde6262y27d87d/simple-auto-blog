@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Шифровальщики и трояны для FreeBSD – краткий обзор</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="Шифровальщики и трояны для FreeBSD – краткий обзор" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/shifrovalyshchiki-i-troyany-dlya" />
+        <meta property="og:keywords" content="RUVDS.com corporate blog,Information Security,*nix,Информационная безопасность,трояны-вымогатели,шифровальщики,nas,vps,хостинг ru,vds_статьи,ruvds_статьи"/>
+        <meta property="og:description" content="В комментариях к моей заметке об энкодерах для NAS один из читателей поинтересовался, а были ли похожие трояны под FreeBSD? И я подумал: а ведь действительно, интересный вопрос! Шифровальщики для этой платформы существуют, и как минимум один совершенно точно распространялся в «дикой природе». Правда, руткиты и другое вредоносное зверьё для неё встречается гораздо чаще, всё-таки, шифровальщики — это слегка экзотика. Вспоминается, что в период, когда я работал в антивирусной компании, нет-нет, да изредка проскакивало что-то, связанное с FreeBSD. Потому я решил вспомнить вредоносы для этой ОС, о которых мне когда-либо доводилось слышать. Ну, и про шифровальщика тоже поговорим. Читать дальше →%" />
+        <meta property="og:image" content="https://habrastorage.org/webt/ih/0k/zt/ih0kzt2nqn-evb1yihp-vwjursc.jpeg" />
+        <meta name="description" content="В комментариях к моей заметке об энкодерах для NAS один из читателей поинтересовался, а были ли похожие трояны под FreeBSD? И я подумал: а ведь действительно, интересный вопрос! Шифровальщики для этой платформы существуют, и как минимум один совершенно точно распространялся в «дикой природе». Правда, руткиты и другое вредоносное зверьё для неё встречается гораздо чаще, всё-таки, шифровальщики — это слегка экзотика. Вспоминается, что в период, когда я работал в антивирусной компании, нет-нет, да изредка проскакивало что-то, связанное с FreeBSD. Потому я решил вспомнить вредоносы для этой ОС, о которых мне когда-либо доводилось слышать. Ну, и про шифровальщика тоже поговорим. Читать дальше →%"/>
+        <meta name="rel_image" content="https://habrastorage.org/webt/ih/0k/zt/ih0kzt2nqn-evb1yihp-vwjursc.jpeg"/>
+        <meta name="keywords" content="RUVDS.com corporate blog,Information Security,*nix,Информационная безопасность,трояны-вымогатели,шифровальщики,nas,vps,хостинг ru,vds_статьи,ruvds_статьи"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/shifrovalyshchiki-i-troyany-dlya" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        
+        <main class="post-main">
+            <div class="title">Шифровальщики и трояны для FreeBSD – краткий обзор</div>
+            <div class="keywords">
+                <div class="keyword">RUVDS.com corporate blog</div><div class="keyword">Information Security</div><div class="keyword">*nix</div><div class="keyword">Informacionnaya bezopasnosty</div><div class="keyword">troyany-vymogateli</div><div class="keyword">shifrovalyshchiki</div><div class="keyword">nas</div><div class="keyword">vps</div><div class="keyword">hosting ru</div><div class="keyword">vds_statyi</div><div class="keyword">ruvds_statyi</div><div class="keyword">RUVDS.com corporate blog</div><div class="keyword">Information Security</div><div class="keyword">*nix</div><div class="keyword">Информационная безопасность</div><div class="keyword">трояны-вымогатели</div><div class="keyword">шифровальщики</div><div class="keyword">nas</div><div class="keyword">vps</div><div class="keyword">хостинг ru</div><div class="keyword">vds_статьи</div><div class="keyword">ruvds_статьи</div>
+            </div>
+            <div class="content">
+<a href="https://habr.com/ru/company/ruvds/blog/683066/"><div><img alt="Image Dov2Pk" src="https://habrastorage.org/webt/ih/0k/zt/ih0kzt2nqn-evb1yihp-vwjursc.jpeg"></div></a><br>
+В комментариях <a href="https://habr.com/ru/company/ruvds/blog/677522/">к моей заметке</a> об энкодерах для NAS один из читателей поинтересовался, а были ли похожие трояны под FreeBSD? И я подумал: а ведь действительно, интересный вопрос! Шифровальщики для этой платформы существуют, и как минимум один совершенно точно распространялся в «дикой природе». Правда, руткиты и другое вредоносное зверьё для неё встречается гораздо чаще, всё-таки, шифровальщики — это слегка экзотика. Вспоминается, что в период, когда я работал в антивирусной компании, нет-нет, да изредка проскакивало что-то, связанное с FreeBSD. Потому я решил вспомнить вредоносы для этой ОС, о которых мне когда-либо доводилось слышать. Ну, и про шифровальщика тоже поговорим. <a href="https://habr.com/en/post/683066/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=683066#habracut">Читать дальше →</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
