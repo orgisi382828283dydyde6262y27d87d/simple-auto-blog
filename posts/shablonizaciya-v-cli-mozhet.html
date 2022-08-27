@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Шаблонизация в CLI может быть простой</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="Шаблонизация в CLI может быть простой" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/shablonizaciya-v-cli-mozhet" />
+        <meta property="og:keywords" content="Open source,Programming,*nix,cli,mustache,C,боль"/>
+        <meta property="og:description" content="Однажды я был маленьким, и задавался вопросом — вот если Unix way это (упрощенно) небольшие, довольно простые утилиты и библиотеки, которые делают одну вещь, но делают её хорошо (Peter H. Salus: "...that do one thing and do it well"), то… Где тогда утилита, которая занимается шаблонизацией и не хватает звёзд с неба? Вот есть у тебя некоторый шаблон, и есть некоторые данные, которые ты имеешь желание в этот шаблон подставить. Брать для этого Jinja2? Писать что-то своё используя sed + awk? Или тащить %tool_name% на несколько мегабайт ради столь тривиальной задачи?Спустя некоторое время, вновь столкнувшись с подобной задачей, и поняв что попытка найти что-то подходящее вновь претерпела фиаско, было принято волевое решение — да-да, написать свой прекрасный проект велосипед шаблонизатор для использования в CLI. Ограничения были выбраны следующие:Статическая линковка — один бинарный файл без каких-либо зависимостей (он мне понадобится в docker scratch)Итоговый размер должен быть минимально возможным (постараться уместиться в 100Кб без upx)На чем писать, если хочется боли компактного результата и быстрого выполнения — естественно, берём C. Какой шаблонизатор использовать, если хочется минимализма? Под такую задачу хорошо подойдет mustache. И вот, спустя некоторое время появляется утилита под кодовым именем mustpl (must — mustache, tpl — template). Читать дальше →%" />
+        <meta property="og:image" content="https://habrastorage.org/webt/ke/hd/ad/kehdadsuobjq7cow5vvpawuwgje.jpeg" />
+        <meta name="description" content="Однажды я был маленьким, и задавался вопросом — вот если Unix way это (упрощенно) небольшие, довольно простые утилиты и библиотеки, которые делают одну вещь, но делают её хорошо (Peter H. Salus: "...that do one thing and do it well"), то… Где тогда утилита, которая занимается шаблонизацией и не хватает звёзд с неба? Вот есть у тебя некоторый шаблон, и есть некоторые данные, которые ты имеешь желание в этот шаблон подставить. Брать для этого Jinja2? Писать что-то своё используя sed + awk? Или тащить %tool_name% на несколько мегабайт ради столь тривиальной задачи?Спустя некоторое время, вновь столкнувшись с подобной задачей, и поняв что попытка найти что-то подходящее вновь претерпела фиаско, было принято волевое решение — да-да, написать свой прекрасный проект велосипед шаблонизатор для использования в CLI. Ограничения были выбраны следующие:Статическая линковка — один бинарный файл без каких-либо зависимостей (он мне понадобится в docker scratch)Итоговый размер должен быть минимально возможным (постараться уместиться в 100Кб без upx)На чем писать, если хочется боли компактного результата и быстрого выполнения — естественно, берём C. Какой шаблонизатор использовать, если хочется минимализма? Под такую задачу хорошо подойдет mustache. И вот, спустя некоторое время появляется утилита под кодовым именем mustpl (must — mustache, tpl — template). Читать дальше →%"/>
+        <meta name="rel_image" content="https://habrastorage.org/webt/ke/hd/ad/kehdadsuobjq7cow5vvpawuwgje.jpeg"/>
+        <meta name="keywords" content="Open source,Programming,*nix,cli,mustache,C,боль"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/shablonizaciya-v-cli-mozhet" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        
+        <main class="post-main">
+            <div class="title">Шаблонизация в CLI может быть простой</div>
+            <div class="keywords">
+                <div class="keyword">Open source</div><div class="keyword">Programming</div><div class="keyword">*nix</div><div class="keyword">cli</div><div class="keyword">mustache</div><div class="keyword">C</div><div class="keyword">boly</div><div class="keyword">Open source</div><div class="keyword">Programming</div><div class="keyword">*nix</div><div class="keyword">cli</div><div class="keyword">mustache</div><div class="keyword">C</div><div class="keyword">боль</div>
+            </div>
+            <div class="content">
+<p><img alt="Image cuOWcg" src="https://habrastorage.org/webt/ke/hd/ad/kehdadsuobjq7cow5vvpawuwgje.jpeg" alt="кдпв"></p>
+<br><p>Однажды я был маленьким, и задавался вопросом — вот если Unix way это (упрощенно) небольшие, довольно простые утилиты и библиотеки, которые делают одну вещь, но делают её хорошо <em>(Peter H. Salus: "...that do one thing and do it well")</em>, то… Где тогда утилита, которая занимается шаблонизацией и не хватает звёзд с неба? Вот есть у тебя некоторый шаблон, и есть некоторые данные, которые ты имеешь желание в этот шаблон подставить. Брать для этого Jinja2? Писать что-то своё используя <code>sed</code> + <code>awk</code>? Или тащить %tool_name% на несколько мегабайт ради столь тривиальной задачи?</p>
+<br><p>Спустя некоторое время, вновь столкнувшись с подобной задачей, и поняв что попытка найти что-то подходящее вновь претерпела фиаско, было принято волевое решение — да-да, написать свой <del>прекрасный проект</del> <del>велосипед</del> шаблонизатор для использования в CLI. Ограничения были выбраны следующие:</p>
+<br><ul>
+<li>Статическая линковка — один бинарный файл без каких-либо зависимостей (он мне понадобится в docker scratch)</li>
+<li>Итоговый размер должен быть минимально возможным (постараться уместиться в 100Кб без upx)</li>
+</ul>
+<br><p>На чем писать, если хочется <del>боли</del> компактного результата и быстрого выполнения — естественно, берём C. Какой шаблонизатор использовать, если хочется минимализма? Под такую задачу хорошо подойдет <a href="https://mustache.github.io/" rel="nofollow noopener noreferrer">mustache</a>. И вот, спустя некоторое время появляется утилита под кодовым именем <a href="https://github.com/tarampampam/mustpl" rel="nofollow noopener noreferrer"><strong>mustpl</strong></a> (<em>must — mustache, tpl — template</em>).</p> <a href="https://habr.com/en/post/684898/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=684898#habracut">Читать дальше →</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
