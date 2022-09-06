@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Как найти и устранить IDOR — ликбез по уязвимости для пентестеров и веб-разработчиков</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="Как найти и устранить IDOR — ликбез по уязвимости для пентестеров и веб-разработчиков" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/kak-najti-i-ustranity" />
+        <meta property="og:keywords" content="Бастион corporate blog,Information Security,Website development,Development of mobile applications,idor,idor что это,разработка веб-приложений,информационная безопасность,баги повсюду,бастион,тестирование,тестирование веб-приложений,rest api,burp suite"/>
+        <meta property="og:description" content="99% того, что я делаю — использование ошибок, которых можно избежать. Сегодня я расскажу про IDOR — одну из самых распространенных и простых в использовании веб-уязвимостей. С ее помощью можно посмотреть чужие фотографии в социальной сети или получить скидку в интернет-магазине, а можно заработать тысячи долларов баг-баунти.На примерах из практики я покажу, как хакеры находят и эксплуатируют ошибки бизнес-логики в приложениях и дам практические советы по их устранению на этапе разработки. Читать далее%" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta name="description" content="99% того, что я делаю — использование ошибок, которых можно избежать. Сегодня я расскажу про IDOR — одну из самых распространенных и простых в использовании веб-уязвимостей. С ее помощью можно посмотреть чужие фотографии в социальной сети или получить скидку в интернет-магазине, а можно заработать тысячи долларов баг-баунти.На примерах из практики я покажу, как хакеры находят и эксплуатируют ошибки бизнес-логики в приложениях и дам практические советы по их устранению на этапе разработки. Читать далее%"/>
+        <meta name="rel_image" content="/assets/images/post-preview.png"/>
+        <meta name="keywords" content="Бастион corporate blog,Information Security,Website development,Development of mobile applications,idor,idor что это,разработка веб-приложений,информационная безопасность,баги повсюду,бастион,тестирование,тестирование веб-приложений,rest api,burp suite"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/kak-najti-i-ustranity" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        
+        <main class="post-main">
+            <h1 class="title">Как найти и устранить IDOR — ликбез по уязвимости для пентестеров и веб-разработчиков</h1>
+            <div class="keywords">
+                <div class="keyword">Bastion corporate blog</div><div class="keyword">Information Security</div><div class="keyword">Website development</div><div class="keyword">Development of mobile applications</div><div class="keyword">idor</div><div class="keyword">idor chto eto</div><div class="keyword">razrabotka veb-prilozhenij</div><div class="keyword">informacionnaya bezopasnosty</div><div class="keyword">bagi povsyudu</div><div class="keyword">bastion</div><div class="keyword">testirovanie</div><div class="keyword">testirovanie veb-prilozhenij</div><div class="keyword">rest api</div><div class="keyword">burp suite</div><div class="keyword">Бастион corporate blog</div><div class="keyword">Information Security</div><div class="keyword">Website development</div><div class="keyword">Development of mobile applications</div><div class="keyword">idor</div><div class="keyword">idor что это</div><div class="keyword">разработка веб-приложений</div><div class="keyword">информационная безопасность</div><div class="keyword">баги повсюду</div><div class="keyword">бастион</div><div class="keyword">тестирование</div><div class="keyword">тестирование веб-приложений</div><div class="keyword">rest api</div><div class="keyword">burp suite</div>
+            </div>
+            <div class="content">
+<p>99% того, что я делаю — использование ошибок, которых можно избежать. Сегодня я расскажу про IDOR — одну из самых распространенных и простых в использовании веб-уязвимостей. С ее помощью можно посмотреть чужие фотографии в социальной сети или получить скидку в интернет-магазине, а можно заработать тысячи долларов баг-баунти.</p>
+<p>На примерах из практики я покажу, как хакеры находят и эксплуатируют ошибки бизнес-логики в приложениях и дам практические советы по их устранению на этапе разработки.</p> <a href="https://habr.com/en/post/686464/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=686464#habracut">Читать далее</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
