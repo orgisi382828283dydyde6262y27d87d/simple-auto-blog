@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Опыт проектов с ИИ в промышленности на примере проекта по обеспечению контроля технического состояния электролизеров</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="Опыт проектов с ИИ в промышленности на примере проекта по обеспечению контроля технического состояния электролизеров" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/opyt-proektov-s-ii" />
+        <meta property="og:keywords" content="Росатом corporate blog,System Analysis and Design,Data visualization,Machine learning,Artificial Intelligence,машинное обучение,анализ данных,искусственный интеллект,промышленность,поиск аномалий,предиктивная аналитика"/>
+        <meta property="og:description" content="Привет, Хабр! На связи Юрий Кацер, эксперт ML и анализу данных в промышленности, а также руководитель направления предиктивной аналитики в компании «Цифрум» Госкорпорации “Росатом”. Недавно я выступил с докладом о том, как в рамках проекта по предиктивной аналитике на производстве мы разрабатывали систему и алгоритмы контроля технического состояния электролизера. По сути, мы разработали систему предиктивной аналитики, возились с поиском работающих подходов, долго мучались с данными о состоянии оборудования и извлекали из умов технологического персонала информацию о работе установок.Сегодня хочу поговорить на примере этого проекта о реализации data science проектов в промышленности. С подобным докладом я также выступал ранее, видео выступления доступно по ссылке. Обычно нашей основной задачей является разработка моделей на основе данных, но работает ли такой подход всегда? Давайте поговорим об основных этапах и проблемах таких проектов и посмотрим, как мы двигались к финальному результату на примере проекта по диагностике электролизеров. Читать далее%" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta name="description" content="Привет, Хабр! На связи Юрий Кацер, эксперт ML и анализу данных в промышленности, а также руководитель направления предиктивной аналитики в компании «Цифрум» Госкорпорации “Росатом”. Недавно я выступил с докладом о том, как в рамках проекта по предиктивной аналитике на производстве мы разрабатывали систему и алгоритмы контроля технического состояния электролизера. По сути, мы разработали систему предиктивной аналитики, возились с поиском работающих подходов, долго мучались с данными о состоянии оборудования и извлекали из умов технологического персонала информацию о работе установок.Сегодня хочу поговорить на примере этого проекта о реализации data science проектов в промышленности. С подобным докладом я также выступал ранее, видео выступления доступно по ссылке. Обычно нашей основной задачей является разработка моделей на основе данных, но работает ли такой подход всегда? Давайте поговорим об основных этапах и проблемах таких проектов и посмотрим, как мы двигались к финальному результату на примере проекта по диагностике электролизеров. Читать далее%"/>
+        <meta name="rel_image" content="/assets/images/post-preview.png"/>
+        <meta name="keywords" content="Росатом corporate blog,System Analysis and Design,Data visualization,Machine learning,Artificial Intelligence,машинное обучение,анализ данных,искусственный интеллект,промышленность,поиск аномалий,предиктивная аналитика"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/opyt-proektov-s-ii" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        
+        <main class="post-main">
+            <h1 class="title">Опыт проектов с ИИ в промышленности на примере проекта по обеспечению контроля технического состояния электролизеров</h1>
+            <div class="keywords">
+                <div class="keyword">Rosatom corporate blog</div><div class="keyword">System Analysis and Design</div><div class="keyword">Data visualization</div><div class="keyword">Machine learning</div><div class="keyword">Artificial Intelligence</div><div class="keyword">mashinnoe obuchenie</div><div class="keyword">analiz dannyh</div><div class="keyword">iskusstvennyj intellekt</div><div class="keyword">promyshlennosty</div><div class="keyword">poisk anomalij</div><div class="keyword">prediktivnaya analitika</div><div class="keyword">Росатом corporate blog</div><div class="keyword">System Analysis and Design</div><div class="keyword">Data visualization</div><div class="keyword">Machine learning</div><div class="keyword">Artificial Intelligence</div><div class="keyword">машинное обучение</div><div class="keyword">анализ данных</div><div class="keyword">искусственный интеллект</div><div class="keyword">промышленность</div><div class="keyword">поиск аномалий</div><div class="keyword">предиктивная аналитика</div>
+            </div>
+            <div class="content">
+<p>Привет, Хабр! На связи Юрий Кацер, эксперт ML и анализу данных в промышленности, а также руководитель направления предиктивной аналитики в компании «Цифрум» Госкорпорации “Росатом”. </p>
+<p>Недавно я выступил с <a href="https://www.youtube.com/watch?v=PXqKoQlqwlo">докладом</a> о том, как в рамках проекта по предиктивной аналитике на производстве мы разрабатывали систему и алгоритмы контроля технического состояния электролизера. По сути, мы разработали систему предиктивной аналитики, возились с поиском работающих подходов, долго мучались с данными о состоянии оборудования и извлекали из умов технологического персонала информацию о работе установок.</p>
+<p>Сегодня хочу поговорить на примере этого проекта о реализации data science проектов в промышленности. С подобным докладом я также выступал ранее, видео выступления доступно <a href="https://youtu.be/2JG6T7YXQ3o?t=3149">по ссылке</a>. Обычно нашей основной задачей является разработка моделей на основе данных, но работает ли такой подход всегда? Давайте поговорим об основных этапах и проблемах таких проектов и посмотрим, как мы двигались к финальному результату на примере проекта по диагностике электролизеров.</p> <a href="https://habr.com/en/post/686864/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=686864#habracut">Читать далее</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
