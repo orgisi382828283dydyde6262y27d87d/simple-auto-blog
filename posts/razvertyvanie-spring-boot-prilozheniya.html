@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Развертывание Spring Boot приложения с помощью Nginx, Let's Encrypt и Docker Compose</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="Развертывание Spring Boot приложения с помощью Nginx, Let's Encrypt и Docker Compose" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/razvertyvanie-spring-boot-prilozheniya" />
+        <meta property="og:keywords" content="Website development,Java,Nginx,java,spring-boot,spring,doc,docker-compose,nginx,letsencrypt,devops,deployment,vps"/>
+        <meta property="og:description" content="Привет, Хабр! В своей первой статье я бы хотел поделиться опытом в развертывании Spring Boot приложения. Но для начала небольшое отступление, которое должно ответить на вопросы зачем и почему.Недавно я столкнулся с задачей разработать Telegram бота. Казалось бы, что тут сложного? Ну раз надо, то разрабатывай, где тут могут быть сложности? Но вот беда, ранее я не сталкивался с задачей развертывания проекта, тем более было много вопросов касаемо получения SSL сертификата так как Telegram API работает только с HTTPS протоколом. Увы после долгих поисков я так и не нашел статьи, которая ответила бы на все вопросы, поэтому процесс деплоя затянулся из-за того, что пришлось собирать весь материал по кусочкам. Теперь, когда у меня получилось разобраться с этой проблемой, я бы хотел вам рассказать как это сделать, чтобы сэкономить вам время и бонусом 2000 рублей за SSL сертификат. Читать далее%" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta name="description" content="Привет, Хабр! В своей первой статье я бы хотел поделиться опытом в развертывании Spring Boot приложения. Но для начала небольшое отступление, которое должно ответить на вопросы зачем и почему.Недавно я столкнулся с задачей разработать Telegram бота. Казалось бы, что тут сложного? Ну раз надо, то разрабатывай, где тут могут быть сложности? Но вот беда, ранее я не сталкивался с задачей развертывания проекта, тем более было много вопросов касаемо получения SSL сертификата так как Telegram API работает только с HTTPS протоколом. Увы после долгих поисков я так и не нашел статьи, которая ответила бы на все вопросы, поэтому процесс деплоя затянулся из-за того, что пришлось собирать весь материал по кусочкам. Теперь, когда у меня получилось разобраться с этой проблемой, я бы хотел вам рассказать как это сделать, чтобы сэкономить вам время и бонусом 2000 рублей за SSL сертификат. Читать далее%"/>
+        <meta name="rel_image" content="/assets/images/post-preview.png"/>
+        <meta name="keywords" content="Website development,Java,Nginx,java,spring-boot,spring,doc,docker-compose,nginx,letsencrypt,devops,deployment,vps"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/razvertyvanie-spring-boot-prilozheniya" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        
+        <main class="post-main">
+            <h1 class="title">Развертывание Spring Boot приложения с помощью Nginx, Let's Encrypt и Docker Compose</h1>
+            <div class="keywords">
+                <div class="keyword">Website development</div><div class="keyword">Java</div><div class="keyword">Nginx</div><div class="keyword">java</div><div class="keyword">spring-boot</div><div class="keyword">spring</div><div class="keyword">doc</div><div class="keyword">docker-compose</div><div class="keyword">nginx</div><div class="keyword">letsencrypt</div><div class="keyword">devops</div><div class="keyword">deployment</div><div class="keyword">vps</div><div class="keyword">Website development</div><div class="keyword">Java</div><div class="keyword">Nginx</div><div class="keyword">java</div><div class="keyword">spring-boot</div><div class="keyword">spring</div><div class="keyword">doc</div><div class="keyword">docker-compose</div><div class="keyword">nginx</div><div class="keyword">letsencrypt</div><div class="keyword">devops</div><div class="keyword">deployment</div><div class="keyword">vps</div>
+            </div>
+            <div class="content">
+<p>Привет, Хабр! В своей первой статье я бы хотел поделиться опытом в развертывании Spring Boot приложения. Но для начала небольшое отступление, которое должно ответить на вопросы зачем и почему.</p>
+<p>Недавно я столкнулся с задачей разработать Telegram бота. Казалось бы, что тут сложного? Ну раз надо, то разрабатывай, где тут могут быть сложности? Но вот беда, ранее я не сталкивался с задачей развертывания проекта, тем более было много вопросов касаемо получения SSL сертификата так как Telegram API работает только с HTTPS протоколом. Увы после долгих поисков я так и не нашел статьи, которая ответила бы на все вопросы, поэтому процесс деплоя затянулся из-за того, что пришлось собирать весь материал по кусочкам. Теперь, когда у меня получилось разобраться с этой проблемой, я бы хотел вам рассказать как это сделать, чтобы сэкономить вам время и бонусом 2000 рублей за SSL сертификат.</p> <a href="https://habr.com/en/post/687210/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=687210#habracut">Читать далее</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
