@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PowerShell: проверка совмещения имен БЭМ-сущностей на одном HTML-узле</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <meta property="og:title" content="PowerShell: проверка совмещения имен БЭМ-сущностей на одном HTML-узле" />
+        <meta property="og:type" content="web:site" />
+        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/powershell-proverka-sovmeshcheniya-imen" />
+        <meta property="og:keywords" content="Website development,Programming,PowerShell,Regular expressions,powershell,бэм,бэм-методология,массивы,объекты,парсер,валидатор,коллекции"/>
+        <meta property="og:description" content="При написании HTML-страницы по методологии БЭМ («Блок, Элемент, Модификатор») БЭМ-сущности привязываются к узлам HTML-дерева. В предыдущих статьях я рассматривал, как можно выполнить в скрипте на языке PowerShell проверку правильности написания названий БЭМ-сущностей по отдельности с помощью регулярных выражений.В этой статье рассмотрено, какие есть правила для совмещения нескольких имен БЭМ-сущностей на одном узле HTML-дерева и как соблюдение этих правил можно проверить в скрипте на языке PowerShell. Приведены иллюстрации фрагментов результатов работы скрипта в разных случаях, при обнаружении разных ошибок. Читать далее%" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta name="description" content="При написании HTML-страницы по методологии БЭМ («Блок, Элемент, Модификатор») БЭМ-сущности привязываются к узлам HTML-дерева. В предыдущих статьях я рассматривал, как можно выполнить в скрипте на языке PowerShell проверку правильности написания названий БЭМ-сущностей по отдельности с помощью регулярных выражений.В этой статье рассмотрено, какие есть правила для совмещения нескольких имен БЭМ-сущностей на одном узле HTML-дерева и как соблюдение этих правил можно проверить в скрипте на языке PowerShell. Приведены иллюстрации фрагментов результатов работы скрипта в разных случаях, при обнаружении разных ошибок. Читать далее%"/>
+        <meta name="rel_image" content="/assets/images/post-preview.png"/>
+        <meta name="keywords" content="Website development,Programming,PowerShell,Regular expressions,powershell,бэм,бэм-методология,массивы,объекты,парсер,валидатор,коллекции"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/powershell-proverka-sovmeshcheniya-imen" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        <script type="text/javascript" src="https://g.Cash-Ads.com/banner/?code=u6a9hGg6UOFh8sfEZG3Fe08gcTxcFxi1%2FMqoPhTNu8c%3D"></script>
+        <main class="post-main">
+            <h1 class="title">PowerShell: проверка совмещения имен БЭМ-сущностей на одном HTML-узле</h1>
+            <div class="keywords">
+                <div class="keyword">Website development</div><div class="keyword">Programming</div><div class="keyword">PowerShell</div><div class="keyword">Regular expressions</div><div class="keyword">powershell</div><div class="keyword">bem</div><div class="keyword">bem-metodologiya</div><div class="keyword">massivy</div><div class="keyword">obyekty</div><div class="keyword">parser</div><div class="keyword">validator</div><div class="keyword">kollekcii</div><div class="keyword">Website development</div><div class="keyword">Programming</div><div class="keyword">PowerShell</div><div class="keyword">Regular expressions</div><div class="keyword">powershell</div><div class="keyword">бэм</div><div class="keyword">бэм-методология</div><div class="keyword">массивы</div><div class="keyword">объекты</div><div class="keyword">парсер</div><div class="keyword">валидатор</div><div class="keyword">коллекции</div>
+            </div>
+            <div class="content">
+<p>При написании HTML-страницы по методологии БЭМ («Блок, Элемент, Модификатор») БЭМ-сущности привязываются к узлам HTML-дерева. В предыдущих статьях я рассматривал, как можно выполнить в скрипте на языке PowerShell проверку правильности написания названий БЭМ-сущностей по отдельности с помощью регулярных выражений.</p>
+<p>В этой статье рассмотрено, какие есть правила для совмещения нескольких имен БЭМ-сущностей на одном узле HTML-дерева и как соблюдение этих правил можно проверить в скрипте на языке PowerShell. Приведены иллюстрации фрагментов результатов работы скрипта в разных случаях, при обнаружении разных ошибок.</p> <a href="https://habr.com/en/post/689762/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=689762#habracut">Читать далее</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
