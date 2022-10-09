@@ -130,4 +130,26 @@ main.post-main {
   color: #00387c;
 }
 
+.btn-read {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: #00387c;
+  color: #fff !important;
+  justify-content: center;
+}
+
+.btn-box {
+  margin: 15px 0px;
+}
+
+.btn-box a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: blue;
+  padding: 10px 20px;
+  color: #fff !important;
+}
+
 /*# sourceMappingURL=main.css.map */
