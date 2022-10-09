@@ -161,7 +161,7 @@ foreach ($rss_feed_f->items as $post){
     $post = str_replace('%title%', $title, $post);
     $post = str_replace('%keywords_html%', RusToLat($posts_keywords).$posts_keywords, $post);
     $post = str_replace('%keywords%', $seo_keywords, $post);
-    $post = str_replace('%content%', $content, $post);
+    $post = str_replace('%content%', str_replace('>Читать дальше', ' class="btn-read">Читать дальше',$content), $post);
     $post = str_replace('%current_url%', $website_url.'/posts/'.$furl, $post);
     $post = str_replace('%img%', $thumbnail, $post);
     $post = str_replace('%description', str_replace('"','',str_replace("\n", '', strip_tags($content))), $post);
