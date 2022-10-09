@@ -15,6 +15,7 @@ function ConvertToUTF8($text){
     return $out;
 }
 
+
 function st_split($string){
     $resultArr = [];
     $strLength = strlen($string);
