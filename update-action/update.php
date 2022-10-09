@@ -1,17 +1,4 @@
 <?php
-function get_data ($uri) {
-    if (!function_exists('curl_init')){ 
-    die('Curl is not installed!');
-    }
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $uri);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $output = curl_exec($ch);
-    curl_close($ch);
-    return $output;
-}
-
 function ConvertToUTF8($text){
 
     $encoding = mb_detect_encoding($text, mb_detect_order(), false);
