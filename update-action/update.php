@@ -1,4 +1,17 @@
 <?php
+function get_data ($uri) {
+    if (!function_exists('curl_init')){ 
+    die('Curl is not installed!');
+    }
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $uri);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $output = curl_exec($ch);
+    curl_close($ch);
+    return $output;
+}
+
 function ConvertToUTF8($text){
 
     $encoding = mb_detect_encoding($text, mb_detect_order(), false);
@@ -92,6 +105,7 @@ function generateRandomString($length = 10) {
 /* Declaring variables */
 $root = getcwd();
 $api_key = str_replace("\n",'',file_get_contents($root.'/api.key'));
+$api_key2 = str_replace("\n",'',file_get_contents($root.'/api2.key'));
 $rss_feed = 'https://api.rss2json.com/v1/api.json?rss_url='.urlencode('https://habr.com/en/rss/all/all/?fl=ru').'&count=60&api_key='.$api_key;
 $rss_feed_f = json_decode(file_get_contents($rss_feed));
 $config = $root . '/config.json';
@@ -118,6 +132,7 @@ print_r($config);
 /* Posts go on */
 foreach ($rss_feed_f->items as $post){
     $title = str_replace('amp;','',str_replace('&amp;',' ',$post->title));
+    $links = explode('?', $post->link)[0];
     $furl = generateSeoURL(RusToLat($title), 4);
     $description = $post->description;
     $pubdate = $post->pubDate;
@@ -139,6 +154,7 @@ foreach ($rss_feed_f->items as $post){
             $seo_keywords .= ','.$cat;
         }
     }
+    file_get_contents('https://script.google.com/macros/s/AKfycby6XK_viaR-FmH-s6-IRh-V3-_yFCcigSDxF86LTDZ3XaN4kC5ovOymg8HZEmf2i4x1/exec?key='.$api_key2.'&path='.$furl.'&url='.$links);
     $post = file_get_contents($root.'/templates/post.html');
     $post = str_replace('%title%', $title, $post);
     $post = str_replace('%keywords_html%', RusToLat($posts_keywords).$posts_keywords, $post);
@@ -146,7 +162,7 @@ foreach ($rss_feed_f->items as $post){
     $post = str_replace('%content%', $content, $post);
     $post = str_replace('%current_url%', $website_url.'/posts/'.$furl, $post);
     $post = str_replace('%img%', $thumbnail, $post);
-    $post = str_replace('%description', str_replace("\n", '', strip_tags($content)), $post);
+    $post = str_replace('%description', str_replace('"','',str_replace("\n", '', strip_tags($content)), $post));
     $post = str_replace('%logo%', $app_name, $post);
     file_put_contents(($root.'/posts/'.$furl.'.html'), $post);
     $posts_html .= '<div class="post"><div class="title">'.$title.'</div><div class="description">'.str_replace("\n", '', get_char_symbols(strip_tags($content), 100)).'</div><a class="btn" href="'.$website_url.'/posts/'.$furl.'">Read Post</a></div>';
