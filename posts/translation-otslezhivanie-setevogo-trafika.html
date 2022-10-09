@@ -1,77 +1,0 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>[Translation] Отслеживание сетевого трафика в Kubernetes: примеры кода и практические советы</title>
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="/assets/css/main.css"/>
-        <meta property="og:title" content="[Translation] Отслеживание сетевого трафика в Kubernetes: примеры кода и практические советы" />
-        <meta property="og:type" content="web:site" />
-        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/translation-otslezhivanie-setevogo-trafika" />
-        <meta property="og:keywords" content="VK corporate blog,DevOps,Kubernetes,vk cloud,контейнеризация,kubernetes,сети,OSI,сетевой трафик,поды"/>
-        <meta property="og:description" content="Команда VK Cloud перевела статью об основных принципах работы сети в Kubernetes: как кластер принимает и отправляет пакеты начиная с исходного веб-запроса и до размещения приложения в контейнере.Требования к сети в KubernetesСначала давайте проясним требования к сети Kubernetes:Под в кластере должен свободно взаимодействовать с любым другим подом без использования Network Address Translation (NAT).Любая программа, работающая на узле кластера, должна взаимодействовать с любым подом на том же узле без использования NAT.У каждого пода есть собственный IP-адрес (IP-per-Pod), и любой другой под может обратиться к нему по этому адресу.Эти требования и ограничения описывают свойства сети кластера в целом и вынуждают отвечать на следующие вопросы: Как убедиться, что контейнеры в одном и том же поде ведут себя как на одном хосте?Может ли под обращаться к другим подам в кластере?Может ли под обращаться к службам? Обрабатывают ли службы запросы о балансировке нагрузки?Может ли под получать трафик извне кластера?В этой статье мы рассмотрим первые три пункта, начиная со взаимодействия на уровне подов и контейнеров.Читать дальше →%" />
-        <meta property="og:image" content="https://habrastorage.org/webt/ou/ex/wp/ouexwp4-timokav8x-frnagwupc.png" />
-        <meta name="description" content="Команда VK Cloud перевела статью об основных принципах работы сети в Kubernetes: как кластер принимает и отправляет пакеты начиная с исходного веб-запроса и до размещения приложения в контейнере.Требования к сети в KubernetesСначала давайте проясним требования к сети Kubernetes:Под в кластере должен свободно взаимодействовать с любым другим подом без использования Network Address Translation (NAT).Любая программа, работающая на узле кластера, должна взаимодействовать с любым подом на том же узле без использования NAT.У каждого пода есть собственный IP-адрес (IP-per-Pod), и любой другой под может обратиться к нему по этому адресу.Эти требования и ограничения описывают свойства сети кластера в целом и вынуждают отвечать на следующие вопросы: Как убедиться, что контейнеры в одном и том же поде ведут себя как на одном хосте?Может ли под обращаться к другим подам в кластере?Может ли под обращаться к службам? Обрабатывают ли службы запросы о балансировке нагрузки?Может ли под получать трафик извне кластера?В этой статье мы рассмотрим первые три пункта, начиная со взаимодействия на уровне подов и контейнеров.Читать дальше →%"/>
-        <meta name="rel_image" content="https://habrastorage.org/webt/ou/ex/wp/ouexwp4-timokav8x-frnagwupc.png"/>
-        <meta name="keywords" content="VK corporate blog,DevOps,Kubernetes,vk cloud,контейнеризация,kubernetes,сети,OSI,сетевой трафик,поды"/>
-        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/translation-otslezhivanie-setevogo-trafika" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-    </head>
-    <body>
-        <nav class="menu">
-            <h2>Habr Backup Blog</h2>
-        </nav>
-        
-        <main class="post-main">
-            <div class="title">[Translation] Отслеживание сетевого трафика в Kubernetes: примеры кода и практические советы</div>
-            <div class="keywords">
-                <div class="keyword">VK corporate blog</div><div class="keyword">DevOps</div><div class="keyword">Kubernetes</div><div class="keyword">vk cloud</div><div class="keyword">kontejnerizaciya</div><div class="keyword">kubernetes</div><div class="keyword">seti</div><div class="keyword">OSI</div><div class="keyword">setevoj trafik</div><div class="keyword">pody</div><div class="keyword">VK corporate blog</div><div class="keyword">DevOps</div><div class="keyword">Kubernetes</div><div class="keyword">vk cloud</div><div class="keyword">контейнеризация</div><div class="keyword">kubernetes</div><div class="keyword">сети</div><div class="keyword">OSI</div><div class="keyword">сетевой трафик</div><div class="keyword">поды</div>
-            </div>
-            <div class="content">
-<img alt="Image rP0bj8" src="https://habrastorage.org/webt/ou/ex/wp/ouexwp4-timokav8x-frnagwupc.png"><br><br>
-Команда <a href="https://mcs.mail.ru/" rel="nofollow noopener noreferrer">VK Cloud</a> перевела статью об основных принципах работы сети в Kubernetes: как кластер принимает и отправляет пакеты начиная с исходного веб-запроса и до размещения приложения в контейнере.<br><br><h2>Требования к сети в Kubernetes</h2>
-<br>
-Сначала давайте проясним требования к сети Kubernetes:<br><br><ul>
-<li>Под в кластере должен свободно взаимодействовать с любым другим подом без использования Network Address Translation (NAT).<br>
-</li>
-<li>Любая программа, работающая на узле кластера, должна взаимодействовать с любым подом на том же узле без использования NAT.<br>
-</li>
-<li>У каждого пода есть собственный IP-адрес (IP-per-Pod), и любой другой под может обратиться к нему по этому адресу.<br>
-</li>
-</ul>
-<br>
-Эти требования и ограничения описывают свойства сети кластера в целом и вынуждают отвечать на следующие вопросы: <br><br><ol>
-<li>Как убедиться, что контейнеры в одном и том же поде ведут себя как на одном хосте?<br>
-</li>
-<li>Может ли под обращаться к другим подам в кластере?<br>
-</li>
-<li>Может ли под обращаться к службам? Обрабатывают ли службы запросы о балансировке нагрузки?<br>
-</li>
-<li>Может ли под получать трафик извне кластера?<br>
-</li>
-</ol>
-<br>
-В этой статье мы рассмотрим первые три пункта, начиная со взаимодействия на уровне подов и контейнеров.<br><a href="https://habr.com/en/post/683256/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=683256#habracut">Читать дальше →</a>
-</div>
-        </main>
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript" >
-           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-           var z = null;m[i].l=1*new Date();
-           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-           ym(90037404, "init", {
-                clickmap:true,
-                trackLinks:true,
-                accurateTrackBounce:true,
-                webvisor:true
-           });
-        </script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-        <!-- /Yandex.Metrika counter -->
-    </body>
-</html>
