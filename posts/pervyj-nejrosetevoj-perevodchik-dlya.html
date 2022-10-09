@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Первый нейросетевой переводчик для эрзянского языка</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+                <title>Первый нейросетевой переводчик для эрзянского языка</title>
+        <meta name="description" content="Эрзянский язык из финно-угорской семьи – один из официальных в республике Мордовия, и на нём говорят сотни тысяч людей, но для него до сих пор не было почти никаких технологий машинного перевода, кроме простых словарей. Я попробовал создать первую нейросеть, способную переводить с эрзянского на русский (и с натяжкой ещё на 10 языков) и обратно не только слова, но и целые предложения. Пока её качество оставляет желать лучшего, но пробовать пользоваться уже можно.Как я собирал для этого тексты и обучал модели – под катом. Читать далее%"/>
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+        <link rel="canonical" href="https://habrb.eu.org/posts/pervyj-nejrosetevoj-perevodchik-dlya/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Первый нейросетевой переводчик для эрзянского языка" />
+        <meta property="og:description" content="Эрзянский язык из финно-угорской семьи – один из официальных в республике Мордовия, и на нём говорят сотни тысяч людей, но для него до сих пор не было почти никаких технологий машинного перевода, кроме простых словарей. Я попробовал создать первую нейросеть, способную переводить с эрзянского на русский (и с натяжкой ещё на 10 языков) и обратно не только слова, но и целые предложения. Пока её качество оставляет желать лучшего, но пробовать пользоваться уже можно.Как я собирал для этого тексты и обучал модели – под катом. Читать далее%" />
+        <meta property="og:url" content="https://habrb.eu.org/" />
+        <meta property="og:site_name" content="Первый нейросетевой переводчик для эрзянского языка" />
+        <meta property="og:updated_time" content="2022-09-24T00:38:58+00:00" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta property="og:image:secure_url" content="/assets/images/post-preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="habr backup blog" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="article:published_time" content="2022-01-26T02:58:02+00:00" />
+        <meta property="article:modified_time" content="2022-09-24T00:38:58+00:00" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Первый нейросетевой переводчик для эрзянского языка" />
+        <meta name="twitter:description" content="Эрзянский язык из финно-угорской семьи – один из официальных в республике Мордовия, и на нём говорят сотни тысяч людей, но для него до сих пор не было почти никаких технологий машинного перевода, кроме простых словарей. Я попробовал создать первую нейросеть, способную переводить с эрзянского на русский (и с натяжкой ещё на 10 языков) и обратно не только слова, но и целые предложения. Пока её качество оставляет желать лучшего, но пробовать пользоваться уже можно.Как я собирал для этого тексты и обучал модели – под катом. Читать далее%" />
+        <meta name="twitter:image" content="/assets/images/post-preview.png" />
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content="habrb" />
+        <meta name="twitter:label2" content="Time to read" />
+        <meta name="twitter:data2" content="11 minutes" />
+        <script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Habr","Backup"],"@id":"https://habrb.eu.org/#organization","name":"Первый нейросетевой переводчик для эрзянского языка","url":"https://habrb.eu.org","logo":{"@type":"ImageObject","@id":"https://habrb.eu.org/#logo","url":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","contentUrl":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","caption":"Первый нейросетевой переводчик для эрзянского языка","inLanguage":"ru-RU","width":"160","height":"90"},"openingHours":["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],"image":{"@id":"https://habrb.eu.org/#logo"}},{"@type":"WebSite","@id":"https://habrb.eu.org/#website","url":"https://habrb.eu.org","name":"Первый нейросетевой переводчик для эрзянского языка","publisher":{"@id":"https://habrb.eu.org/#organization"},"inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":"https://habrb.eu.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","url":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","width":"200","height":"200","inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://habrb.eu.org/#webpage","url":"https://habrb.eu.org/","name":"Первый нейросетевой переводчик для эрзянского языка","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","about":{"@id":"https://habrb.eu.org/#organization"},"isPartOf":{"@id":"https://habrb.eu.org/#website"},"primaryImageOfPage":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU"},{"@type":"Person","@id":"https://habrb.eu.org/author/habrb/","name":"habrb","url":"https://habrb.eu.org/author/habrb/","image":{"@type":"ImageObject","@id":"/assets/images/post-preview.png","url":"/assets/images/post-preview.png","caption":"habrb","inLanguage":"ru-RU"},"sameAs":["https://habrb.eu.org"],"worksFor":{"@id":"https://habrb.eu.org/#organization"}},{"@type":"Article","headline":"Первый нейросетевой переводчик для эрзянского языка","keywords":"Semantics,Data Mining,Machine learning,Artificial Intelligence,Natural Language Processing,машинный перевод,machine translation,переводчик,cезон data mining,nlp,ml,machine learning,natural language processing,lower-resource language,малоресурсный язык","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","author":{"@id":"https://habrb.eu.org/author/habrb/"},"publisher":{"@id":"https://habrb.eu.org/#organization"},"description":"Эрзянский язык из финно-угорской семьи – один из официальных в республике Мордовия, и на нём говорят сотни тысяч людей, но для него до сих пор не было почти никаких технологий машинного перевода, кроме простых словарей. Я попробовал создать первую нейросеть, способную переводить с эрзянского на русский (и с натяжкой ещё на 10 языков) и обратно не только слова, но и целые предложения. Пока её качество оставляет желать лучшего, но пробовать пользоваться уже можно.Как я собирал для этого тексты и обучал модели – под катом. Читать далее%","name":"Первый нейросетевой переводчик для эрзянского языка","@id":"https://habrb.eu.org/#richSnippet","isPartOf":{"@id":"https://habrb.eu.org/#webpage"},"image":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU","mainEntityOfPage":{"@id":"https://habrb.eu.org/#webpage"}}]}</script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        <script type="text/javascript" src="https://g.Cash-Ads.com/banner/?code=u6a9hGg6UOFh8sfEZG3Fe08gcTxcFxi1%2FMqoPhTNu8c%3D"></script>
+        <main class="post-main">
+            <h1 class="title">Первый нейросетевой переводчик для эрзянского языка</h1>
+            <div class="keywords">
+                <div class="keyword">Semantics</div><div class="keyword">Data Mining</div><div class="keyword">Machine learning</div><div class="keyword">Artificial Intelligence</div><div class="keyword">Natural Language Processing</div><div class="keyword">mashinnyj perevod</div><div class="keyword">machine translation</div><div class="keyword">perevodchik</div><div class="keyword">cezon data mining</div><div class="keyword">nlp</div><div class="keyword">ml</div><div class="keyword">machine learning</div><div class="keyword">natural language processing</div><div class="keyword">lower-resource language</div><div class="keyword">maloresursnyj yazyk</div><div class="keyword">Semantics</div><div class="keyword">Data Mining</div><div class="keyword">Machine learning</div><div class="keyword">Artificial Intelligence</div><div class="keyword">Natural Language Processing</div><div class="keyword">машинный перевод</div><div class="keyword">machine translation</div><div class="keyword">переводчик</div><div class="keyword">cезон data mining</div><div class="keyword">nlp</div><div class="keyword">ml</div><div class="keyword">machine learning</div><div class="keyword">natural language processing</div><div class="keyword">lower-resource language</div><div class="keyword">малоресурсный язык</div>
+            </div>
+            <div class="content">
+<p>Эрзянский язык из финно-угорской семьи – один из официальных в республике Мордовия, и на нём говорят сотни тысяч людей, но для него до сих пор не было почти никаких технологий машинного перевода, кроме простых словарей. <br>Я попробовал создать первую нейросеть, способную переводить с эрзянского на русский (и с натяжкой ещё на 10 языков) и обратно не только слова, но и целые предложения. <br>Пока её качество оставляет желать лучшего, но пробовать пользоваться уже можно.<br>Как я собирал для этого тексты и обучал модели – под катом.</p> <a href="https://habr.com/en/post/692168/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=692168#habracut">Читать далее</a>
+</div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
