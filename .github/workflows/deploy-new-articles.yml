@@ -49,6 +49,7 @@ jobs:
           ls posts
           cd update-action/
           echo "${{ secrets.RSS2APIKEY }}">api.key
+          echo "${{ secrets.BACKUPAPIKEY }}">api2.key
           mkdir posts
           php update.php
           mv {robots.txt,index.html,sitemap.xml} ../
