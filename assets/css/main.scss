@@ -101,3 +101,25 @@ main.post-main {
 .post-main a{
     color: $main-color;
 }
+
+.btn-read {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: $main-color;
+    color: $bg-color !important;
+    justify-content: center;
+}
+
+.btn-box {
+    margin: 15px 0px;
+}
+
+.btn-box a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: blue;
+    padding: 10px 20px;
+    color: $bg-color !important;
+}
