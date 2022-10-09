@@ -52,7 +52,7 @@ jobs:
           mkdir posts
           php update.php
           mv {robots.txt,index.html,sitemap.xml} ../
-          rm -rf ../posts/*
+          #rm -rf ../posts/*
           mv posts/* ../posts/
           ls ../posts/
           rm api.key
