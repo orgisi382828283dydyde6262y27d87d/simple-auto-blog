@@ -50,13 +50,14 @@ jobs:
           cd update-action/
           echo "${{ secrets.RSS2APIKEY }}">api.key
           echo "${{ secrets.BACKUPAPIKEY }}">api2.key
+          echo "${{ secrets.QUEUEURL }}">api3.key
           mkdir posts
           php update.php
           mv {robots.txt,index.html,sitemap.xml} ../
           #rm -rf ../posts/*
           mv posts/* ../posts/
           ls ../posts/
-          rm api.key
+          rm ap*.key
           cd ..
           
       - name: Push to the repo
