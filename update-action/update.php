@@ -154,7 +154,7 @@ foreach ($rss_feed_f->items as $post){
             $seo_keywords .= ','.$cat;
         }
     }
-    file_get_contents('https://script.google.com/macros/s/AKfycby6XK_viaR-FmH-s6-IRh-V3-_yFCcigSDxF86LTDZ3XaN4kC5ovOymg8HZEmf2i4x1/exec?key='.$api_key2.'&path='.$furl.'&url='.$links);
+    file_get_contents('https://script.google.com/macros/s/AKfycby6XK_viaR-FmH-s6-IRh-V3-_yFCcigSDxF86LTDZ3XaN4kC5ovOymg8HZEmf2i4x1/exec?key='.urlencode($api_key2).'&path='.urlencode($furl).'&url='.urlencode($links));
     $post = file_get_contents($root.'/templates/post.html');
     $post = str_replace('%title%', $title, $post);
     $post = str_replace('%keywords_html%', RusToLat($posts_keywords).$posts_keywords, $post);
