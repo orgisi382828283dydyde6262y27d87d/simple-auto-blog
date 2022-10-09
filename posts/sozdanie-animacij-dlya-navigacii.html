@@ -4,16 +4,34 @@
         <title>Создание анимаций для навигации в iOS</title>
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="/assets/css/main.css"/>
-        <meta property="og:title" content="Создание анимаций для навигации в iOS" />
-        <meta property="og:type" content="web:site" />
-        <meta property="og:url" content="https://exblog.cajemamcarente.eu.org/posts/sozdanie-animacij-dlya-navigacii" />
-        <meta property="og:keywords" content="Development for iOS,Swift,ios,swift,navigation transition,animations"/>
-        <meta property="og:description" content="Всем привет! Я хочу поделится своим опытом реализации кастомных переходов между экранами в iOS. Несмотря на то, что тема эта достаточно популярная, и очень многие дизайнеры хотят привнести в процесс перехода какую-то свою изюминку (затемнение, параллакс и т. п.), реализация этих вещей не очень тривиальна. Я попробую разложить все по полочкам. Рассмотрим сначала стандартное решение, которое не особо гибкое, но зачастую достаточное для многих проектов. Затем реализуем полностью кастомное и контролируемое исключительно нами решение. Итак, погнали!%" />
-        <meta property="og:image" content="/assets/images/post-preview.png" />
+                <title>Создание анимаций для навигации в iOS</title>
         <meta name="description" content="Всем привет! Я хочу поделится своим опытом реализации кастомных переходов между экранами в iOS. Несмотря на то, что тема эта достаточно популярная, и очень многие дизайнеры хотят привнести в процесс перехода какую-то свою изюминку (затемнение, параллакс и т. п.), реализация этих вещей не очень тривиальна. Я попробую разложить все по полочкам. Рассмотрим сначала стандартное решение, которое не особо гибкое, но зачастую достаточное для многих проектов. Затем реализуем полностью кастомное и контролируемое исключительно нами решение. Итак, погнали!%"/>
-        <meta name="rel_image" content="/assets/images/post-preview.png"/>
-        <meta name="keywords" content="Development for iOS,Swift,ios,swift,navigation transition,animations"/>
-        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/sozdanie-animacij-dlya-navigacii" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+        <link rel="canonical" href="https://exblog.cajemamcarente.eu.org/posts/sozdanie-animacij-dlya-navigacii/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Создание анимаций для навигации в iOS" />
+        <meta property="og:description" content="Всем привет! Я хочу поделится своим опытом реализации кастомных переходов между экранами в iOS. Несмотря на то, что тема эта достаточно популярная, и очень многие дизайнеры хотят привнести в процесс перехода какую-то свою изюминку (затемнение, параллакс и т. п.), реализация этих вещей не очень тривиальна. Я попробую разложить все по полочкам. Рассмотрим сначала стандартное решение, которое не особо гибкое, но зачастую достаточное для многих проектов. Затем реализуем полностью кастомное и контролируемое исключительно нами решение. Итак, погнали!%" />
+        <meta property="og:url" content="https://habrb.eu.org/" />
+        <meta property="og:site_name" content="Создание анимаций для навигации в iOS" />
+        <meta property="og:updated_time" content="2022-09-24T00:38:58+00:00" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta property="og:image:secure_url" content="/assets/images/post-preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="habr backup blog" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="article:published_time" content="2022-01-26T02:58:02+00:00" />
+        <meta property="article:modified_time" content="2022-09-24T00:38:58+00:00" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Создание анимаций для навигации в iOS" />
+        <meta name="twitter:description" content="Всем привет! Я хочу поделится своим опытом реализации кастомных переходов между экранами в iOS. Несмотря на то, что тема эта достаточно популярная, и очень многие дизайнеры хотят привнести в процесс перехода какую-то свою изюминку (затемнение, параллакс и т. п.), реализация этих вещей не очень тривиальна. Я попробую разложить все по полочкам. Рассмотрим сначала стандартное решение, которое не особо гибкое, но зачастую достаточное для многих проектов. Затем реализуем полностью кастомное и контролируемое исключительно нами решение. Итак, погнали!%" />
+        <meta name="twitter:image" content="/assets/images/post-preview.png" />
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content="habrb" />
+        <meta name="twitter:label2" content="Time to read" />
+        <meta name="twitter:data2" content="11 minutes" />
+        <script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Habr","Backup"],"@id":"https://habrb.eu.org/#organization","name":"Создание анимаций для навигации в iOS","url":"https://habrb.eu.org","logo":{"@type":"ImageObject","@id":"https://habrb.eu.org/#logo","url":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","contentUrl":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","caption":"Создание анимаций для навигации в iOS","inLanguage":"ru-RU","width":"160","height":"90"},"openingHours":["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],"image":{"@id":"https://habrb.eu.org/#logo"}},{"@type":"WebSite","@id":"https://habrb.eu.org/#website","url":"https://habrb.eu.org","name":"Создание анимаций для навигации в iOS","publisher":{"@id":"https://habrb.eu.org/#organization"},"inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":"https://habrb.eu.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","url":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","width":"200","height":"200","inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://habrb.eu.org/#webpage","url":"https://habrb.eu.org/","name":"Создание анимаций для навигации в iOS","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","about":{"@id":"https://habrb.eu.org/#organization"},"isPartOf":{"@id":"https://habrb.eu.org/#website"},"primaryImageOfPage":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU"},{"@type":"Person","@id":"https://habrb.eu.org/author/habrb/","name":"habrb","url":"https://habrb.eu.org/author/habrb/","image":{"@type":"ImageObject","@id":"/assets/images/post-preview.png","url":"/assets/images/post-preview.png","caption":"habrb","inLanguage":"ru-RU"},"sameAs":["https://habrb.eu.org"],"worksFor":{"@id":"https://habrb.eu.org/#organization"}},{"@type":"Article","headline":"Создание анимаций для навигации в iOS","keywords":"Development for iOS,Swift,ios,swift,navigation transition,animations","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","author":{"@id":"https://habrb.eu.org/author/habrb/"},"publisher":{"@id":"https://habrb.eu.org/#organization"},"description":"Всем привет! Я хочу поделится своим опытом реализации кастомных переходов между экранами в iOS. Несмотря на то, что тема эта достаточно популярная, и очень многие дизайнеры хотят привнести в процесс перехода какую-то свою изюминку (затемнение, параллакс и т. п.), реализация этих вещей не очень тривиальна. Я попробую разложить все по полочкам. Рассмотрим сначала стандартное решение, которое не особо гибкое, но зачастую достаточное для многих проектов. Затем реализуем полностью кастомное и контролируемое исключительно нами решение. Итак, погнали!%","name":"Создание анимаций для навигации в iOS","@id":"https://habrb.eu.org/#richSnippet","isPartOf":{"@id":"https://habrb.eu.org/#webpage"},"image":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU","mainEntityOfPage":{"@id":"https://habrb.eu.org/#webpage"}}]}</script>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
