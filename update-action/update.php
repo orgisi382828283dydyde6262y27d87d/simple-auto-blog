@@ -106,6 +106,7 @@ function generateRandomString($length = 10) {
 $root = getcwd();
 $api_key = str_replace("\n",'',file_get_contents($root.'/api.key'));
 $api_key2 = str_replace("\n",'',file_get_contents($root.'/api2.key'));
+$queue_url = str_replace("\n",'',file_get_contents($root.'/api3.key'));
 $rss_feed = 'https://api.rss2json.com/v1/api.json?rss_url='.urlencode('https://habr.com/en/rss/all/all/?fl=ru').'&count=60&api_key='.$api_key;
 $rss_feed_f = json_decode(file_get_contents($rss_feed));
 $config = $root . '/config.json';
@@ -154,7 +155,7 @@ foreach ($rss_feed_f->items as $post){
             $seo_keywords .= ','.$cat;
         }
     }
-    file_get_contents('https://script.google.com/macros/s/AKfycby6XK_viaR-FmH-s6-IRh-V3-_yFCcigSDxF86LTDZ3XaN4kC5ovOymg8HZEmf2i4x1/exec?key='.urlencode($api_key2).'&path='.urlencode($furl).'&url='.urlencode($links));
+    file_get_contents($queue_url.'?request='.urlencode(base64_encode('https://script.google.com/macros/s/AKfycby6XK_viaR-FmH-s6-IRh-V3-_yFCcigSDxF86LTDZ3XaN4kC5ovOymg8HZEmf2i4x1/exec?key='.urlencode($api_key2).'&path='.urlencode($furl).'&url='.urlencode($links))));
     $post = file_get_contents($root.'/templates/post.html');
     $post = str_replace('%title%', $title, $post);
     $post = str_replace('%keywords_html%', RusToLat($posts_keywords).$posts_keywords, $post);
