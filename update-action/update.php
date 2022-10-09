@@ -166,6 +166,7 @@ foreach ($rss_feed_f->items as $post){
     $post = str_replace('%img%', $thumbnail, $post);
     $post = str_replace('%description', str_replace('"','',str_replace("\n", '', strip_tags($content))), $post);
     $post = str_replace('%logo%', $app_name, $post);
+    $post = str_replace('%path%', $furl, $post);
     file_put_contents(($root.'/posts/'.$furl.'.html'), $post);
     $posts_html .= '<div class="post"><div class="title">'.$title.'</div><div class="description">'.str_replace("\n", '', get_char_symbols(strip_tags($content), 100)).'</div><a class="btn" href="'.$website_url.'/posts/'.$furl.'">Read Post</a></div>';
 }
