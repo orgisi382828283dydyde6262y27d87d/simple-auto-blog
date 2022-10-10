@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css?v=1.0"/>
+                <title>Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли</title>
+        <meta name="description" content="Некоторое время назад к нам пришел клиент – крупный металлургический комбинат с запросам разработки системы распознавания речи. Продукцию комбината перевозят поезда. А во время железнодорожных грузоперевозок машинисты и диспетчеры должны переговариваться согласно регламенту. За переговоры не по регламенту - штраф. Поэтому “боль” клиента была сильной: получить систему автоматического контроля регламента переговоров по рации во избежание финансовых потерь и снижения риска катастроф.  Мы опрометчиво согласились. А когда получили аудиозаписи, поняли, что поторопились подписывать договор.  Читать, что было дальше%"/>
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+        <link rel="canonical" href="https://habrb.eu.org/posts/puty-samuraya-v-asr/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли" />
+        <meta property="og:description" content="Некоторое время назад к нам пришел клиент – крупный металлургический комбинат с запросам разработки системы распознавания речи. Продукцию комбината перевозят поезда. А во время железнодорожных грузоперевозок машинисты и диспетчеры должны переговариваться согласно регламенту. За переговоры не по регламенту - штраф. Поэтому “боль” клиента была сильной: получить систему автоматического контроля регламента переговоров по рации во избежание финансовых потерь и снижения риска катастроф.  Мы опрометчиво согласились. А когда получили аудиозаписи, поняли, что поторопились подписывать договор.  Читать, что было дальше%" />
+        <meta property="og:url" content="https://habrb.eu.org/" />
+        <meta property="og:site_name" content="Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли" />
+        <meta property="og:updated_time" content="2022-09-24T00:38:58+00:00" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta property="og:image:secure_url" content="/assets/images/post-preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="habr backup blog" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="article:published_time" content="2022-01-26T02:58:02+00:00" />
+        <meta property="article:modified_time" content="2022-09-24T00:38:58+00:00" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли" />
+        <meta name="twitter:description" content="Некоторое время назад к нам пришел клиент – крупный металлургический комбинат с запросам разработки системы распознавания речи. Продукцию комбината перевозят поезда. А во время железнодорожных грузоперевозок машинисты и диспетчеры должны переговариваться согласно регламенту. За переговоры не по регламенту - штраф. Поэтому “боль” клиента была сильной: получить систему автоматического контроля регламента переговоров по рации во избежание финансовых потерь и снижения риска катастроф.  Мы опрометчиво согласились. А когда получили аудиозаписи, поняли, что поторопились подписывать договор.  Читать, что было дальше%" />
+        <meta name="twitter:image" content="/assets/images/post-preview.png" />
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content="habrb" />
+        <meta name="twitter:label2" content="Time to read" />
+        <meta name="twitter:data2" content="11 minutes" />
+        <script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Habr","Backup"],"@id":"https://habrb.eu.org/#organization","name":"Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли","url":"https://habrb.eu.org","logo":{"@type":"ImageObject","@id":"https://habrb.eu.org/#logo","url":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","contentUrl":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","caption":"Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли","inLanguage":"ru-RU","width":"160","height":"90"},"openingHours":["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],"image":{"@id":"https://habrb.eu.org/#logo"}},{"@type":"WebSite","@id":"https://habrb.eu.org/#website","url":"https://habrb.eu.org","name":"Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли","publisher":{"@id":"https://habrb.eu.org/#organization"},"inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":"https://habrb.eu.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","url":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","width":"200","height":"200","inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://habrb.eu.org/#webpage","url":"https://habrb.eu.org/","name":"Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","about":{"@id":"https://habrb.eu.org/#organization"},"isPartOf":{"@id":"https://habrb.eu.org/#website"},"primaryImageOfPage":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU"},{"@type":"Person","@id":"https://habrb.eu.org/author/habrb/","name":"habrb","url":"https://habrb.eu.org/author/habrb/","image":{"@type":"ImageObject","@id":"/assets/images/post-preview.png","url":"/assets/images/post-preview.png","caption":"habrb","inLanguage":"ru-RU"},"sameAs":["https://habrb.eu.org"],"worksFor":{"@id":"https://habrb.eu.org/#organization"}},{"@type":"Article","headline":"Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли","keywords":"Amvera corporate blog,Semantics,Programming,Machine learning,Reading room,Распознавание речи,Тюнинг распознавания речи,asr,распознавание в шумах,распознавание раций,распознавание речи в ЖД,amvera,amvera speech,дообучение распознавания речи,системы распознавания речи","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","author":{"@id":"https://habrb.eu.org/author/habrb/"},"publisher":{"@id":"https://habrb.eu.org/#organization"},"description":"Некоторое время назад к нам пришел клиент – крупный металлургический комбинат с запросам разработки системы распознавания речи. Продукцию комбината перевозят поезда. А во время железнодорожных грузоперевозок машинисты и диспетчеры должны переговариваться согласно регламенту. За переговоры не по регламенту - штраф. Поэтому “боль” клиента была сильной: получить систему автоматического контроля регламента переговоров по рации во избежание финансовых потерь и снижения риска катастроф.  Мы опрометчиво согласились. А когда получили аудиозаписи, поняли, что поторопились подписывать договор.  Читать, что было дальше%","name":"Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли","@id":"https://habrb.eu.org/#richSnippet","isPartOf":{"@id":"https://habrb.eu.org/#webpage"},"image":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU","mainEntityOfPage":{"@id":"https://habrb.eu.org/#webpage"}}]}</script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        <script type="text/javascript" src="https://g.Cash-Ads.com/banner/?code=u6a9hGg6UOFh8sfEZG3Fe08gcTxcFxi1%2FMqoPhTNu8c%3D"></script>
+        <main class="post-main">
+            <h1 class="title">Путь самурая в ASR, или как мы сделали распознавание речи для ЖД отрасли</h1>
+            <div class="keywords">
+                <div class="keyword">Amvera corporate blog</div><div class="keyword">Semantics</div><div class="keyword">Programming</div><div class="keyword">Machine learning</div><div class="keyword">Reading room</div><div class="keyword">Raspoznavanie rechi</div><div class="keyword">Tyuning raspoznavaniya rechi</div><div class="keyword">asr</div><div class="keyword">raspoznavanie v shumah</div><div class="keyword">raspoznavanie racij</div><div class="keyword">raspoznavanie rechi v ZhD</div><div class="keyword">amvera</div><div class="keyword">amvera speech</div><div class="keyword">doobuchenie raspoznavaniya rechi</div><div class="keyword">sistemy raspoznavaniya rechi</div><div class="keyword">Amvera corporate blog</div><div class="keyword">Semantics</div><div class="keyword">Programming</div><div class="keyword">Machine learning</div><div class="keyword">Reading room</div><div class="keyword">Распознавание речи</div><div class="keyword">Тюнинг распознавания речи</div><div class="keyword">asr</div><div class="keyword">распознавание в шумах</div><div class="keyword">распознавание раций</div><div class="keyword">распознавание речи в ЖД</div><div class="keyword">amvera</div><div class="keyword">amvera speech</div><div class="keyword">дообучение распознавания речи</div><div class="keyword">системы распознавания речи</div>
+            </div>
+            <div class="content">
+<p>Некоторое время назад к нам пришел клиент – крупный металлургический комбинат с запросам разработки системы распознавания речи. Продукцию комбината перевозят поезда. А во время железнодорожных грузоперевозок машинисты и диспетчеры должны переговариваться согласно регламенту. За переговоры не по регламенту - штраф. Поэтому “боль” клиента была сильной: получить систему автоматического контроля регламента переговоров по рации во избежание финансовых потерь и снижения риска катастроф.  </p>
+<p>Мы опрометчиво согласились. А когда получили аудиозаписи, поняли, что поторопились подписывать договор. </p>
+<p></p> <a href="https://habr.com/en/post/692296/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=692296#habracut" class="btn-read">Читать, что было дальше</a>
+</div>
+            <div class="btn-box">
+                <a href="/backup/?path=puty-samuraya-v-asr">Show backup</a>
+            </div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
