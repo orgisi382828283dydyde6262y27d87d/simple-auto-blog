@@ -1,6 +1,5 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-
    <loc>https://habrb.eu.org/</loc>
    <lastmod>2022-10-10</lastmod>
 </url>
@@ -37,11 +36,19 @@
    <lastmod>2022-10-10</lastmod>
 </url>
 <url>
+   <loc>https://habrb.eu.org/posts/kpi-a-vy-razvodite/</loc>
+   <lastmod>2022-10-10</lastmod>
+</url>
+<url>
    <loc>https://habrb.eu.org/posts/poslednyaya-pesny-nokia/</loc>
    <lastmod>2022-10-10</lastmod>
 </url>
 <url>
    <loc>https://habrb.eu.org/posts/s-chego-nachaty-izuchaty/</loc>
+   <lastmod>2022-10-10</lastmod>
+</url>
+<url>
+   <loc>https://habrb.eu.org/posts/kniga-iskusstvennyj-intellekt-i/</loc>
    <lastmod>2022-10-10</lastmod>
 </url>
 <url>
@@ -54,6 +61,14 @@
 </url>
 <url>
    <loc>https://habrb.eu.org/posts/evidently-ili-kak-pasti/</loc>
+   <lastmod>2022-10-10</lastmod>
+</url>
+<url>
+   <loc>https://habrb.eu.org/posts/otsrochka-dlya-rabotnikov-it-kompanij/</loc>
+   <lastmod>2022-10-10</lastmod>
+</url>
+<url>
+   <loc>https://habrb.eu.org/posts/raspoznavanie-rechi-generaciya-subtitrov/</loc>
    <lastmod>2022-10-10</lastmod>
 </url>
 <url>
@@ -78,6 +93,10 @@
 </url>
 <url>
    <loc>https://habrb.eu.org/posts/samopisnye-komponenty-v-konvejere/</loc>
+   <lastmod>2022-10-10</lastmod>
+</url>
+<url>
+   <loc>https://habrb.eu.org/posts/20-mln-rublej-v/</loc>
    <lastmod>2022-10-10</lastmod>
 </url>
 <url>
@@ -185,6 +204,14 @@
    <lastmod>2022-10-10</lastmod>
 </url>
 <url>
+   <loc>https://habrb.eu.org/posts/skram-ili-kanban/</loc>
+   <lastmod>2022-10-10</lastmod>
+</url>
+<url>
+   <loc>https://habrb.eu.org/posts/relokaciya-v-daniyu-v/</loc>
+   <lastmod>2022-10-10</lastmod>
+</url>
+<url>
    <loc>https://habrb.eu.org/posts/yndx-family-rasskazyvaem-chto/</loc>
    <lastmod>2022-10-10</lastmod>
 </url>
@@ -217,6 +244,10 @@
    <lastmod>2022-10-10</lastmod>
 </url>
 <url>
+   <loc>https://habrb.eu.org/posts/kak-3cx-integriruetsya-s/</loc>
+   <lastmod>2022-10-10</lastmod>
+</url>
+<url>
    <loc>https://habrb.eu.org/posts/mvi-i-state-machine/</loc>
    <lastmod>2022-10-10</lastmod>
 </url>
@@ -242,6 +273,10 @@
 </url>
 <url>
    <loc>https://habrb.eu.org/posts/smogut-li-nejroseti-zamenity/</loc>
+   <lastmod>2022-10-10</lastmod>
+</url>
+<url>
+   <loc>https://habrb.eu.org/posts/lavritech-v71-lite-programmiruem/</loc>
    <lastmod>2022-10-10</lastmod>
 </url>
 <url>
