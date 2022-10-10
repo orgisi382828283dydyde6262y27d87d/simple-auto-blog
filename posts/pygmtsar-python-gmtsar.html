@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css?v=1.0"/>
+                <title>PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех</title>
+        <meta name="description" content="Долго ли, коротко ли, а только мой проект спутниковой интерферометрии PyGMTSAR, начинавшийся просто для проверки некоторых идей и алгоритмов, превратился в самостоятельную Python PyPI библиотеку и обзавелся тестами (CI on Github Actions) и живыми примерами на Google Colab и в образе Docker, плюс документацией на GitHub Pages.Классическая интерферограмма — обычно так выглядит смещение поверхности в результате сильного землетрясения Читать дальше →%"/>
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+        <link rel="canonical" href="https://habrb.eu.org/posts/pygmtsar-python-gmtsar/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех" />
+        <meta property="og:description" content="Долго ли, коротко ли, а только мой проект спутниковой интерферометрии PyGMTSAR, начинавшийся просто для проверки некоторых идей и алгоритмов, превратился в самостоятельную Python PyPI библиотеку и обзавелся тестами (CI on Github Actions) и живыми примерами на Google Colab и в образе Docker, плюс документацией на GitHub Pages.Классическая интерферограмма — обычно так выглядит смещение поверхности в результате сильного землетрясения Читать дальше →%" />
+        <meta property="og:url" content="https://habrb.eu.org/" />
+        <meta property="og:site_name" content="PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех" />
+        <meta property="og:updated_time" content="2022-09-24T00:38:58+00:00" />
+        <meta property="og:image" content="https://github.com/mobigroup/gmtsar/actions/workflows/macos.yml/badge.svg" />
+        <meta property="og:image:secure_url" content="https://github.com/mobigroup/gmtsar/actions/workflows/macos.yml/badge.svg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="habr backup blog" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="article:published_time" content="2022-01-26T02:58:02+00:00" />
+        <meta property="article:modified_time" content="2022-09-24T00:38:58+00:00" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех" />
+        <meta name="twitter:description" content="Долго ли, коротко ли, а только мой проект спутниковой интерферометрии PyGMTSAR, начинавшийся просто для проверки некоторых идей и алгоритмов, превратился в самостоятельную Python PyPI библиотеку и обзавелся тестами (CI on Github Actions) и живыми примерами на Google Colab и в образе Docker, плюс документацией на GitHub Pages.Классическая интерферограмма — обычно так выглядит смещение поверхности в результате сильного землетрясения Читать дальше →%" />
+        <meta name="twitter:image" content="https://github.com/mobigroup/gmtsar/actions/workflows/macos.yml/badge.svg" />
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content="habrb" />
+        <meta name="twitter:label2" content="Time to read" />
+        <meta name="twitter:data2" content="11 minutes" />
+        <script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Habr","Backup"],"@id":"https://habrb.eu.org/#organization","name":"PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех","url":"https://habrb.eu.org","logo":{"@type":"ImageObject","@id":"https://habrb.eu.org/#logo","url":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","contentUrl":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","caption":"PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех","inLanguage":"ru-RU","width":"160","height":"90"},"openingHours":["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],"image":{"@id":"https://habrb.eu.org/#logo"}},{"@type":"WebSite","@id":"https://habrb.eu.org/#website","url":"https://habrb.eu.org","name":"PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех","publisher":{"@id":"https://habrb.eu.org/#organization"},"inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":"https://habrb.eu.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","url":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","width":"200","height":"200","inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://habrb.eu.org/#webpage","url":"https://habrb.eu.org/","name":"PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","about":{"@id":"https://habrb.eu.org/#organization"},"isPartOf":{"@id":"https://habrb.eu.org/#website"},"primaryImageOfPage":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU"},{"@type":"Person","@id":"https://habrb.eu.org/author/habrb/","name":"habrb","url":"https://habrb.eu.org/author/habrb/","image":{"@type":"ImageObject","@id":"https://github.com/mobigroup/gmtsar/actions/workflows/macos.yml/badge.svg","url":"https://github.com/mobigroup/gmtsar/actions/workflows/macos.yml/badge.svg","caption":"habrb","inLanguage":"ru-RU"},"sameAs":["https://habrb.eu.org"],"worksFor":{"@id":"https://habrb.eu.org/#organization"}},{"@type":"Article","headline":"PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех","keywords":"Open source,Geoinformation services,Popular science,Open data,Programming,InSAR,DInSAR,SBAS,PSI,SAR,geology,model,jupyter,python,GMTSAR,PyGMTSAR","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","author":{"@id":"https://habrb.eu.org/author/habrb/"},"publisher":{"@id":"https://habrb.eu.org/#organization"},"description":"Долго ли, коротко ли, а только мой проект спутниковой интерферометрии PyGMTSAR, начинавшийся просто для проверки некоторых идей и алгоритмов, превратился в самостоятельную Python PyPI библиотеку и обзавелся тестами (CI on Github Actions) и живыми примерами на Google Colab и в образе Docker, плюс документацией на GitHub Pages.Классическая интерферограмма — обычно так выглядит смещение поверхности в результате сильного землетрясения Читать дальше →%","name":"PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех","@id":"https://habrb.eu.org/#richSnippet","isPartOf":{"@id":"https://habrb.eu.org/#webpage"},"image":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU","mainEntityOfPage":{"@id":"https://habrb.eu.org/#webpage"}}]}</script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        <script type="text/javascript" src="https://g.Cash-Ads.com/banner/?code=u6a9hGg6UOFh8sfEZG3Fe08gcTxcFxi1%2FMqoPhTNu8c%3D"></script>
+        <main class="post-main">
+            <h1 class="title">PyGMTSAR (Python GMTSAR) — Спутниковая интерферометрия для всех</h1>
+            <div class="keywords">
+                <div class="keyword">Open source</div><div class="keyword">Geoinformation services</div><div class="keyword">Popular science</div><div class="keyword">Open data</div><div class="keyword">Programming</div><div class="keyword">InSAR</div><div class="keyword">DInSAR</div><div class="keyword">SBAS</div><div class="keyword">PSI</div><div class="keyword">SAR</div><div class="keyword">geology</div><div class="keyword">model</div><div class="keyword">jupyter</div><div class="keyword">python</div><div class="keyword">GMTSAR</div><div class="keyword">PyGMTSAR</div><div class="keyword">Open source</div><div class="keyword">Geoinformation services</div><div class="keyword">Popular science</div><div class="keyword">Open data</div><div class="keyword">Programming</div><div class="keyword">InSAR</div><div class="keyword">DInSAR</div><div class="keyword">SBAS</div><div class="keyword">PSI</div><div class="keyword">SAR</div><div class="keyword">geology</div><div class="keyword">model</div><div class="keyword">jupyter</div><div class="keyword">python</div><div class="keyword">GMTSAR</div><div class="keyword">PyGMTSAR</div>
+            </div>
+            <div class="content">
+<p><a href="https://github.com/mobigroup/gmtsar/actions/workflows/macos.yml" rel="nofollow noopener noreferrer"><img alt="Image atEqXB" src="https://github.com/mobigroup/gmtsar/actions/workflows/macos.yml/badge.svg" alt="MacOS tests"></a><a href="https://github.com/mobigroup/gmtsar/actions/workflows/ubuntu.yml" rel="nofollow noopener noreferrer"><img alt="Image atEqXB" src="https://github.com/mobigroup/gmtsar/actions/workflows/ubuntu.yml/badge.svg" alt="Ubuntu tests"></a><a href="https://github.com/mobigroup/gmtsar/actions/workflows/pypi.yml" rel="nofollow noopener noreferrer"><img alt="Image atEqXB" src="https://github.com/mobigroup/gmtsar/actions/workflows/pypi.yml/badge.svg" alt="PyPI tests"></a><a href="https://pypi.python.org/pypi/pygmtsar/" rel="nofollow noopener noreferrer"><img alt="Image atEqXB" src="https://img.shields.io/pypi/v/pygmtsar.svg" alt="Available on pypi"></a><a href="https://hub.docker.com/r/mobigroup/pygmtsar" rel="nofollow noopener noreferrer"><img alt="Image atEqXB" src="https://badgen.net/badge/icon/docker?icon=docker&amp;label" alt="Docker"></a></p>
+<br><p>Долго ли, коротко ли, а только мой проект спутниковой интерферометрии <a href="https://github.com/mobigroup/gmtsar" rel="nofollow noopener noreferrer">PyGMTSAR</a>, начинавшийся просто для проверки некоторых идей и алгоритмов, превратился в самостоятельную <a href="https://pypi.org/project/pygmtsar/" rel="nofollow noopener noreferrer">Python PyPI библиотеку</a> и обзавелся тестами (CI on Github Actions) и "живыми" примерами на Google Colab и в <a href="https://hub.docker.com/r/mobigroup/pygmtsar" rel="nofollow noopener noreferrer">образе Docker</a>, плюс документацией на <a href="https://mobigroup.github.io/gmtsar/" rel="nofollow noopener noreferrer">GitHub Pages</a>.<br><img alt="Image atEqXB" src="https://habrastorage.org/webt/rp/we/o5/rpweo5ypevq1mnthj67patj6f78.jpeg"><br>
+"Классическая" интерферограмма — обычно так выглядит смещение поверхности в результате сильного землетрясения</p> <a href="https://habr.com/en/post/692334/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=692334#habracut" class="btn-read">Читать дальше →</a>
+</div>
+            <div class="btn-box">
+                <a href="/backup/?path=pygmtsar-python-gmtsar">Show backup</a>
+            </div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
