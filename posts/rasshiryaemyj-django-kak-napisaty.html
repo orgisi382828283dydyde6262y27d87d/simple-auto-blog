@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Расширяемый Django: как написать database backend?</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css?v=1.0"/>
+                <title>Расширяемый Django: как написать database backend?</title>
+        <meta name="description" content="Здравствуйте, дорогие бэкенд-разработчики на Python, у меня опять статья про django. И так будет до тех пор, пока в нём не появится нормальная поддержка асинхронности (шучу).Вопреки распространённому мнению, что django - это фреймворк с батарейками, но не очень поддаётся кастомизации, это не так. Необходимость поддержки разных провайдеров, поддержка так называемого multi-db (одновременное использование нескольких баз), да и просто банальное использование здравого смысла (местами) сделало этот фреймворк одним из наиболее расширяемых среди ORM.В этой статье я расскажу, как устроен database backend - это та штука, которая отвечает за поддержку конкретной базы данных и конкретного драйвера для неё. Я сделаю это на довольно экзотическом примере: мы с вами добавим поддержку асинхронного драйвера - psycopg3. Да, именно асинхронного. А вы думали, что django так не умеет? Читайте и судите сами. Читать%"/>
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+        <link rel="canonical" href="https://habrb.eu.org/posts/rasshiryaemyj-django-kak-napisaty/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Расширяемый Django: как написать database backend?" />
+        <meta property="og:description" content="Здравствуйте, дорогие бэкенд-разработчики на Python, у меня опять статья про django. И так будет до тех пор, пока в нём не появится нормальная поддержка асинхронности (шучу).Вопреки распространённому мнению, что django - это фреймворк с батарейками, но не очень поддаётся кастомизации, это не так. Необходимость поддержки разных провайдеров, поддержка так называемого multi-db (одновременное использование нескольких баз), да и просто банальное использование здравого смысла (местами) сделало этот фреймворк одним из наиболее расширяемых среди ORM.В этой статье я расскажу, как устроен database backend - это та штука, которая отвечает за поддержку конкретной базы данных и конкретного драйвера для неё. Я сделаю это на довольно экзотическом примере: мы с вами добавим поддержку асинхронного драйвера - psycopg3. Да, именно асинхронного. А вы думали, что django так не умеет? Читайте и судите сами. Читать%" />
+        <meta property="og:url" content="https://habrb.eu.org/" />
+        <meta property="og:site_name" content="Расширяемый Django: как написать database backend?" />
+        <meta property="og:updated_time" content="2022-09-24T00:38:58+00:00" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta property="og:image:secure_url" content="/assets/images/post-preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="habr backup blog" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="article:published_time" content="2022-01-26T02:58:02+00:00" />
+        <meta property="article:modified_time" content="2022-09-24T00:38:58+00:00" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Расширяемый Django: как написать database backend?" />
+        <meta name="twitter:description" content="Здравствуйте, дорогие бэкенд-разработчики на Python, у меня опять статья про django. И так будет до тех пор, пока в нём не появится нормальная поддержка асинхронности (шучу).Вопреки распространённому мнению, что django - это фреймворк с батарейками, но не очень поддаётся кастомизации, это не так. Необходимость поддержки разных провайдеров, поддержка так называемого multi-db (одновременное использование нескольких баз), да и просто банальное использование здравого смысла (местами) сделало этот фреймворк одним из наиболее расширяемых среди ORM.В этой статье я расскажу, как устроен database backend - это та штука, которая отвечает за поддержку конкретной базы данных и конкретного драйвера для неё. Я сделаю это на довольно экзотическом примере: мы с вами добавим поддержку асинхронного драйвера - psycopg3. Да, именно асинхронного. А вы думали, что django так не умеет? Читайте и судите сами. Читать%" />
+        <meta name="twitter:image" content="/assets/images/post-preview.png" />
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content="habrb" />
+        <meta name="twitter:label2" content="Time to read" />
+        <meta name="twitter:data2" content="11 minutes" />
+        <script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Habr","Backup"],"@id":"https://habrb.eu.org/#organization","name":"Расширяемый Django: как написать database backend?","url":"https://habrb.eu.org","logo":{"@type":"ImageObject","@id":"https://habrb.eu.org/#logo","url":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","contentUrl":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","caption":"Расширяемый Django: как написать database backend?","inLanguage":"ru-RU","width":"160","height":"90"},"openingHours":["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],"image":{"@id":"https://habrb.eu.org/#logo"}},{"@type":"WebSite","@id":"https://habrb.eu.org/#website","url":"https://habrb.eu.org","name":"Расширяемый Django: как написать database backend?","publisher":{"@id":"https://habrb.eu.org/#organization"},"inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":"https://habrb.eu.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","url":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","width":"200","height":"200","inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://habrb.eu.org/#webpage","url":"https://habrb.eu.org/","name":"Расширяемый Django: как написать database backend?","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","about":{"@id":"https://habrb.eu.org/#organization"},"isPartOf":{"@id":"https://habrb.eu.org/#website"},"primaryImageOfPage":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU"},{"@type":"Person","@id":"https://habrb.eu.org/author/habrb/","name":"habrb","url":"https://habrb.eu.org/author/habrb/","image":{"@type":"ImageObject","@id":"/assets/images/post-preview.png","url":"/assets/images/post-preview.png","caption":"habrb","inLanguage":"ru-RU"},"sameAs":["https://habrb.eu.org"],"worksFor":{"@id":"https://habrb.eu.org/#organization"}},{"@type":"Article","headline":"Расширяемый Django: как написать database backend?","keywords":"Python,Django,python,django,asyncio,greenlet,psycopg3,backend","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","author":{"@id":"https://habrb.eu.org/author/habrb/"},"publisher":{"@id":"https://habrb.eu.org/#organization"},"description":"Здравствуйте, дорогие бэкенд-разработчики на Python, у меня опять статья про django. И так будет до тех пор, пока в нём не появится нормальная поддержка асинхронности (шучу).Вопреки распространённому мнению, что django - это фреймворк с батарейками, но не очень поддаётся кастомизации, это не так. Необходимость поддержки разных провайдеров, поддержка так называемого multi-db (одновременное использование нескольких баз), да и просто банальное использование здравого смысла (местами) сделало этот фреймворк одним из наиболее расширяемых среди ORM.В этой статье я расскажу, как устроен database backend - это та штука, которая отвечает за поддержку конкретной базы данных и конкретного драйвера для неё. Я сделаю это на довольно экзотическом примере: мы с вами добавим поддержку асинхронного драйвера - psycopg3. Да, именно асинхронного. А вы думали, что django так не умеет? Читайте и судите сами. Читать%","name":"Расширяемый Django: как написать database backend?","@id":"https://habrb.eu.org/#richSnippet","isPartOf":{"@id":"https://habrb.eu.org/#webpage"},"image":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU","mainEntityOfPage":{"@id":"https://habrb.eu.org/#webpage"}}]}</script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        <script type="text/javascript" src="https://g.Cash-Ads.com/banner/?code=u6a9hGg6UOFh8sfEZG3Fe08gcTxcFxi1%2FMqoPhTNu8c%3D"></script>
+        <main class="post-main">
+            <h1 class="title">Расширяемый Django: как написать database backend?</h1>
+            <div class="keywords">
+                <div class="keyword">Python</div><div class="keyword">Django</div><div class="keyword">python</div><div class="keyword">django</div><div class="keyword">asyncio</div><div class="keyword">greenlet</div><div class="keyword">psycopg3</div><div class="keyword">backend</div><div class="keyword">Python</div><div class="keyword">Django</div><div class="keyword">python</div><div class="keyword">django</div><div class="keyword">asyncio</div><div class="keyword">greenlet</div><div class="keyword">psycopg3</div><div class="keyword">backend</div>
+            </div>
+            <div class="content">
+<p>Здравствуйте, дорогие бэкенд-разработчики на Python, у меня опять статья про django. И так будет до тех пор, пока в нём не появится нормальная поддержка асинхронности (шучу).</p>
+<p>Вопреки распространённому мнению, что django - это фреймворк "с батарейками", но не очень поддаётся кастомизации, это не так. Необходимость поддержки разных провайдеров, поддержка так называемого <a href="https://docs.djangoproject.com/en/4.1/ref/databases/" rel="noopener noreferrer nofollow">multi-db</a> (одновременное использование нескольких баз), да и просто банальное использование здравого смысла (местами) сделало этот фреймворк одним из наиболее расширяемых среди ORM.</p>
+<p>В этой статье я расскажу, как устроен database backend - это та штука, которая отвечает за поддержку конкретной базы данных и конкретного драйвера для неё. Я сделаю это на довольно экзотическом примере: мы с вами добавим поддержку асинхронного драйвера - psycopg3. Да, именно асинхронного. А вы думали, что django так не умеет? Читайте и судите сами.</p>
+<p></p> <a href="https://habr.com/en/post/698938/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=698938#habracut" class="btn-read">Читать</a>
+</div>
+            <div class="btn-box">
+                <a href="/backup/?path=rasshiryaemyj-django-kak-napisaty">Show backup</a>
+            </div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
