@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Астрофото: совмещаем одиночные кадры</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css?v=1.0"/>
+                <title>Астрофото: совмещаем одиночные кадры</title>
+        <meta name="description" content="Одной из главных проблем при съёмке астрофотографий являются разнообразные шумы. Не буду подробно останавливаться на том, откуда они берутся и какие компоненты в них присутствуют. Об этом уже есть хорошая серия статей на Хабре, за подробностями рекомендую обратиться к ней. Здесь я только резюмирую основной способ борьбы с шумом: нужно снять несколько кадров одной и той же области неба (чем больше, тем лучше) и усреднить сигнал с соответствующих пикселей. Но какие пиксели на разных кадрах считать соответствующими? Если бы можно было гарантировать, что объекты между кадрами не сдвинутся ни на пиксель, то всё было бы предельно ясно: просто суммируем одни и те же пиксели на матрице.  Но что делать, когда слежение неидеально, или съёмка вовсе ведётся с неподвижного штатива? Тогда звёзды и другие небесные тела будут смещаться, и перед сложением кадры нужно будет правильно наложить друг на друга. Эта статья посвящена тому, как это сделать. Читать далее%"/>
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+        <link rel="canonical" href="https://habrb.eu.org/posts/astrofoto-sovmeshchaem-odinochnye-kadry/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Астрофото: совмещаем одиночные кадры" />
+        <meta property="og:description" content="Одной из главных проблем при съёмке астрофотографий являются разнообразные шумы. Не буду подробно останавливаться на том, откуда они берутся и какие компоненты в них присутствуют. Об этом уже есть хорошая серия статей на Хабре, за подробностями рекомендую обратиться к ней. Здесь я только резюмирую основной способ борьбы с шумом: нужно снять несколько кадров одной и той же области неба (чем больше, тем лучше) и усреднить сигнал с соответствующих пикселей. Но какие пиксели на разных кадрах считать соответствующими? Если бы можно было гарантировать, что объекты между кадрами не сдвинутся ни на пиксель, то всё было бы предельно ясно: просто суммируем одни и те же пиксели на матрице.  Но что делать, когда слежение неидеально, или съёмка вовсе ведётся с неподвижного штатива? Тогда звёзды и другие небесные тела будут смещаться, и перед сложением кадры нужно будет правильно наложить друг на друга. Эта статья посвящена тому, как это сделать. Читать далее%" />
+        <meta property="og:url" content="https://habrb.eu.org/" />
+        <meta property="og:site_name" content="Астрофото: совмещаем одиночные кадры" />
+        <meta property="og:updated_time" content="2022-09-24T00:38:58+00:00" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta property="og:image:secure_url" content="/assets/images/post-preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="habr backup blog" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="article:published_time" content="2022-01-26T02:58:02+00:00" />
+        <meta property="article:modified_time" content="2022-09-24T00:38:58+00:00" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Астрофото: совмещаем одиночные кадры" />
+        <meta name="twitter:description" content="Одной из главных проблем при съёмке астрофотографий являются разнообразные шумы. Не буду подробно останавливаться на том, откуда они берутся и какие компоненты в них присутствуют. Об этом уже есть хорошая серия статей на Хабре, за подробностями рекомендую обратиться к ней. Здесь я только резюмирую основной способ борьбы с шумом: нужно снять несколько кадров одной и той же области неба (чем больше, тем лучше) и усреднить сигнал с соответствующих пикселей. Но какие пиксели на разных кадрах считать соответствующими? Если бы можно было гарантировать, что объекты между кадрами не сдвинутся ни на пиксель, то всё было бы предельно ясно: просто суммируем одни и те же пиксели на матрице.  Но что делать, когда слежение неидеально, или съёмка вовсе ведётся с неподвижного штатива? Тогда звёзды и другие небесные тела будут смещаться, и перед сложением кадры нужно будет правильно наложить друг на друга. Эта статья посвящена тому, как это сделать. Читать далее%" />
+        <meta name="twitter:image" content="/assets/images/post-preview.png" />
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content="habrb" />
+        <meta name="twitter:label2" content="Time to read" />
+        <meta name="twitter:data2" content="11 minutes" />
+        <script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Habr","Backup"],"@id":"https://habrb.eu.org/#organization","name":"Астрофото: совмещаем одиночные кадры","url":"https://habrb.eu.org","logo":{"@type":"ImageObject","@id":"https://habrb.eu.org/#logo","url":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","contentUrl":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","caption":"Астрофото: совмещаем одиночные кадры","inLanguage":"ru-RU","width":"160","height":"90"},"openingHours":["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],"image":{"@id":"https://habrb.eu.org/#logo"}},{"@type":"WebSite","@id":"https://habrb.eu.org/#website","url":"https://habrb.eu.org","name":"Астрофото: совмещаем одиночные кадры","publisher":{"@id":"https://habrb.eu.org/#organization"},"inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":"https://habrb.eu.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","url":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","width":"200","height":"200","inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://habrb.eu.org/#webpage","url":"https://habrb.eu.org/","name":"Астрофото: совмещаем одиночные кадры","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","about":{"@id":"https://habrb.eu.org/#organization"},"isPartOf":{"@id":"https://habrb.eu.org/#website"},"primaryImageOfPage":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU"},{"@type":"Person","@id":"https://habrb.eu.org/author/habrb/","name":"habrb","url":"https://habrb.eu.org/author/habrb/","image":{"@type":"ImageObject","@id":"/assets/images/post-preview.png","url":"/assets/images/post-preview.png","caption":"habrb","inLanguage":"ru-RU"},"sameAs":["https://habrb.eu.org"],"worksFor":{"@id":"https://habrb.eu.org/#organization"}},{"@type":"Article","headline":"Астрофото: совмещаем одиночные кадры","keywords":"C++,Image processing,Astronomy,астрофото,пет-проект,обработка изображений","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","author":{"@id":"https://habrb.eu.org/author/habrb/"},"publisher":{"@id":"https://habrb.eu.org/#organization"},"description":"Одной из главных проблем при съёмке астрофотографий являются разнообразные шумы. Не буду подробно останавливаться на том, откуда они берутся и какие компоненты в них присутствуют. Об этом уже есть хорошая серия статей на Хабре, за подробностями рекомендую обратиться к ней. Здесь я только резюмирую основной способ борьбы с шумом: нужно снять несколько кадров одной и той же области неба (чем больше, тем лучше) и усреднить сигнал с соответствующих пикселей. Но какие пиксели на разных кадрах считать соответствующими? Если бы можно было гарантировать, что объекты между кадрами не сдвинутся ни на пиксель, то всё было бы предельно ясно: просто суммируем одни и те же пиксели на матрице.  Но что делать, когда слежение неидеально, или съёмка вовсе ведётся с неподвижного штатива? Тогда звёзды и другие небесные тела будут смещаться, и перед сложением кадры нужно будет правильно наложить друг на друга. Эта статья посвящена тому, как это сделать. Читать далее%","name":"Астрофото: совмещаем одиночные кадры","@id":"https://habrb.eu.org/#richSnippet","isPartOf":{"@id":"https://habrb.eu.org/#webpage"},"image":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU","mainEntityOfPage":{"@id":"https://habrb.eu.org/#webpage"}}]}</script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        <script type="text/javascript" src="https://g.Cash-Ads.com/banner/?code=u6a9hGg6UOFh8sfEZG3Fe08gcTxcFxi1%2FMqoPhTNu8c%3D"></script>
+        <main class="post-main">
+            <h1 class="title">Астрофото: совмещаем одиночные кадры</h1>
+            <div class="keywords">
+                <div class="keyword">C++</div><div class="keyword">Image processing</div><div class="keyword">Astronomy</div><div class="keyword">astrofoto</div><div class="keyword">pet-proekt</div><div class="keyword">obrabotka izobrazhenij</div><div class="keyword">C++</div><div class="keyword">Image processing</div><div class="keyword">Astronomy</div><div class="keyword">астрофото</div><div class="keyword">пет-проект</div><div class="keyword">обработка изображений</div>
+            </div>
+            <div class="content">
+<p>Одной из главных проблем при съёмке астрофотографий являются разнообразные шумы. Не буду подробно останавливаться на том, откуда они берутся и какие компоненты в них присутствуют. Об этом уже есть хорошая <a href="https://habr.com/ru/post/572180/" rel="noopener noreferrer nofollow">серия статей </a>на Хабре, за подробностями рекомендую обратиться к ней. Здесь я только резюмирую основной способ борьбы с шумом: нужно снять несколько кадров одной и той же области неба (чем больше, тем лучше) и усреднить сигнал с соответствующих пикселей. </p>
+<p><br>Но какие пиксели на разных кадрах считать соответствующими? Если бы можно было гарантировать, что объекты между кадрами не сдвинутся ни на пиксель, то всё было бы предельно ясно: просто суммируем одни и те же пиксели на матрице.  Но что делать, когда слежение неидеально, или съёмка вовсе ведётся с неподвижного штатива? Тогда звёзды и другие небесные тела будут смещаться, и перед сложением кадры нужно будет правильно наложить друг на друга. Эта статья посвящена тому, как это сделать.</p>
+<p></p> <a href="https://habr.com/en/post/698992/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=698992#habracut" class="btn-read">Читать далее</a>
+</div>
+            <div class="btn-box">
+                <a href="/backup/?path=astrofoto-sovmeshchaem-odinochnye-kadry">Show backup</a>
+            </div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
