@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Big O нотация в Swift (часть 2 — Сокращение)</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="/assets/css/main.css?v=1.0"/>
+                <title>Big O нотация в Swift (часть 2 — Сокращение)</title>
+        <meta name="description" content=" Привет всем, добро пожаловать в раздел о сокращении Big O. В первой части мы познакомились с BigO нотацией, а  сегодня вы узнаете, как взять большой сложный алгоритм и свести его до минимального значения Big O. После прочтения данной статьи вы сможете взглянуть на любой алгоритм и определить, что представляют собой различные компоненты в рантайме. Итак, давайте выясним, как на самом деле анализировать и определять Big O любого алгоритма. Читать далее%"/>
+        <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+        <link rel="canonical" href="https://habrb.eu.org/posts/big-o-notaciya-v/" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Big O нотация в Swift (часть 2 — Сокращение)" />
+        <meta property="og:description" content=" Привет всем, добро пожаловать в раздел о сокращении Big O. В первой части мы познакомились с BigO нотацией, а  сегодня вы узнаете, как взять большой сложный алгоритм и свести его до минимального значения Big O. После прочтения данной статьи вы сможете взглянуть на любой алгоритм и определить, что представляют собой различные компоненты в рантайме. Итак, давайте выясним, как на самом деле анализировать и определять Big O любого алгоритма. Читать далее%" />
+        <meta property="og:url" content="https://habrb.eu.org/" />
+        <meta property="og:site_name" content="Big O нотация в Swift (часть 2 — Сокращение)" />
+        <meta property="og:updated_time" content="2022-09-24T00:38:58+00:00" />
+        <meta property="og:image" content="/assets/images/post-preview.png" />
+        <meta property="og:image:secure_url" content="/assets/images/post-preview.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="habr backup blog" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="article:published_time" content="2022-01-26T02:58:02+00:00" />
+        <meta property="article:modified_time" content="2022-09-24T00:38:58+00:00" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Big O нотация в Swift (часть 2 — Сокращение)" />
+        <meta name="twitter:description" content=" Привет всем, добро пожаловать в раздел о сокращении Big O. В первой части мы познакомились с BigO нотацией, а  сегодня вы узнаете, как взять большой сложный алгоритм и свести его до минимального значения Big O. После прочтения данной статьи вы сможете взглянуть на любой алгоритм и определить, что представляют собой различные компоненты в рантайме. Итак, давайте выясним, как на самом деле анализировать и определять Big O любого алгоритма. Читать далее%" />
+        <meta name="twitter:image" content="/assets/images/post-preview.png" />
+        <meta name="twitter:label1" content="Written by" />
+        <meta name="twitter:data1" content="habrb" />
+        <meta name="twitter:label2" content="Time to read" />
+        <meta name="twitter:data2" content="11 minutes" />
+        <script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Habr","Backup"],"@id":"https://habrb.eu.org/#organization","name":"Big O нотация в Swift (часть 2 — Сокращение)","url":"https://habrb.eu.org","logo":{"@type":"ImageObject","@id":"https://habrb.eu.org/#logo","url":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","contentUrl":"https://habrb.eu.org/wp-content/uploads/2022/02/TheDentalLogo.png","caption":"Big O нотация в Swift (часть 2 — Сокращение)","inLanguage":"ru-RU","width":"160","height":"90"},"openingHours":["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],"image":{"@id":"https://habrb.eu.org/#logo"}},{"@type":"WebSite","@id":"https://habrb.eu.org/#website","url":"https://habrb.eu.org","name":"Big O нотация в Swift (часть 2 — Сокращение)","publisher":{"@id":"https://habrb.eu.org/#organization"},"inLanguage":"ru-RU","potentialAction":{"@type":"SearchAction","target":"https://habrb.eu.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","url":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg","width":"200","height":"200","inLanguage":"ru-RU"},{"@type":"WebPage","@id":"https://habrb.eu.org/#webpage","url":"https://habrb.eu.org/","name":"Big O нотация в Swift (часть 2 — Сокращение)","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","about":{"@id":"https://habrb.eu.org/#organization"},"isPartOf":{"@id":"https://habrb.eu.org/#website"},"primaryImageOfPage":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU"},{"@type":"Person","@id":"https://habrb.eu.org/author/habrb/","name":"habrb","url":"https://habrb.eu.org/author/habrb/","image":{"@type":"ImageObject","@id":"/assets/images/post-preview.png","url":"/assets/images/post-preview.png","caption":"habrb","inLanguage":"ru-RU"},"sameAs":["https://habrb.eu.org"],"worksFor":{"@id":"https://habrb.eu.org/#organization"}},{"@type":"Article","headline":"Big O нотация в Swift (часть 2 — Сокращение)","keywords":"Algorithms,Swift,big o,swift,алгоритмы","datePublished":"2022-01-26T02:58:02+00:00","dateModified":"2022-09-24T00:38:58+00:00","author":{"@id":"https://habrb.eu.org/author/habrb/"},"publisher":{"@id":"https://habrb.eu.org/#organization"},"description":" Привет всем, добро пожаловать в раздел о сокращении Big O. В первой части мы познакомились с BigO нотацией, а  сегодня вы узнаете, как взять большой сложный алгоритм и свести его до минимального значения Big O. После прочтения данной статьи вы сможете взглянуть на любой алгоритм и определить, что представляют собой различные компоненты в рантайме. Итак, давайте выясним, как на самом деле анализировать и определять Big O любого алгоритма. Читать далее%","name":"Big O нотация в Swift (часть 2 — Сокращение)","@id":"https://habrb.eu.org/#richSnippet","isPartOf":{"@id":"https://habrb.eu.org/#webpage"},"image":{"@id":"https://habrb.eu.org/wp-content/uploads/2022/07/Vision.svg"},"inLanguage":"ru-RU","mainEntityOfPage":{"@id":"https://habrb.eu.org/#webpage"}}]}</script>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+    </head>
+    <body>
+        <nav class="menu">
+            <h2>Habr Backup Blog</h2>
+        </nav>
+        <script type="text/javascript" src="https://g.Cash-Ads.com/banner/?code=u6a9hGg6UOFh8sfEZG3Fe08gcTxcFxi1%2FMqoPhTNu8c%3D"></script>
+        <main class="post-main">
+            <h1 class="title">Big O нотация в Swift (часть 2 — Сокращение)</h1>
+            <div class="keywords">
+                <div class="keyword">Algorithms</div><div class="keyword">Swift</div><div class="keyword">big o</div><div class="keyword">swift</div><div class="keyword">algoritmy</div><div class="keyword">Algorithms</div><div class="keyword">Swift</div><div class="keyword">big o</div><div class="keyword">swift</div><div class="keyword">алгоритмы</div>
+            </div>
+            <div class="content">
+<p> Привет всем, добро пожаловать в раздел о сокращении Big O. В <a href="https://habr.com/ru/post/645723/" rel="noopener noreferrer nofollow">первой части</a> мы познакомились с BigO нотацией, а  сегодня вы узнаете, как взять большой сложный алгоритм и свести его до минимального значения Big O. После прочтения данной статьи вы сможете взглянуть на любой алгоритм и определить, что представляют собой различные компоненты в рантайме. Итак, давайте выясним, как на самом деле анализировать и определять Big O любого алгоритма.</p> <a href="https://habr.com/en/post/701822/?utm_source=habrahabr&amp;utm_medium=rss&amp;utm_campaign=701822#habracut" class="btn-read">Читать далее</a>
+</div>
+            <div class="btn-box">
+                <a href="/backup/?path=big-o-notaciya-v">Show backup</a>
+            </div>
+        </main>
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+           var z = null;m[i].l=1*new Date();
+           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+           k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+           (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+           ym(90037404, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+           });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/90037404" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
+    </body>
+</html>
